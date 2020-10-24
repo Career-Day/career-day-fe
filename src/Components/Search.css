@@ -1,0 +1,14 @@
+.Search-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+    padding: 10px;
+}
+
+.hamburger-menu {
+    background-image: url(/Hamburger.png);
+    background-size: cover;
+    width: 20px;
+    border: none;
+}

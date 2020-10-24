@@ -9,7 +9,6 @@ const Header = () => {
             <Link className="back-button" to="/home-page" >Back</Link>
             <h2>Career Day</h2>
             <img style={{height:'3em'}} src='/Profile.png' alt='no user signed in' />
-            {/* <div>person</div> */}
         </div>
     )
 }

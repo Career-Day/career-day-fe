@@ -1,0 +1,8 @@
+.Header-section {
+    display: flex;
+    height: 15vh;
+    width: 100vw;
+    background-color: aqua;
+    align-items: center;
+    justify-content: space-around;
+}

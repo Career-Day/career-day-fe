@@ -8,7 +8,8 @@ const Header = () => {
         <div className="Header-section">
             <Link className="back-button" to="/home-page" >Back</Link>
             <h2>Career Day</h2>
-            <div>person</div>
+            <img style={{height:'3em'}} src='/Profile.png' alt='no user signed in' />
+            {/* <div>person</div> */}
         </div>
     )
 }

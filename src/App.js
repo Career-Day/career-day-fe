@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import LandingPage from './PageViews/LandingPage'
 import HomePage from './PageViews/HomePage'
+import JobDetails from './PageViews/JobDetails'
 import { Route } from 'react-router-dom'
 
 function App() {
@@ -24,6 +25,14 @@ function App() {
             <HomePage />
           )
         }}
+      />
+      <Route 
+      path="/details:id"
+      render={(props) => {
+        return (
+          <JobDetails {...props} />
+        )
+      }}
       />
     </main>
     </>

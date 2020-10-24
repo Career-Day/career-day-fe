@@ -1,0 +1,14 @@
+.jobDetails-page {
+  display: flex;
+  flex-flow: column;
+}
+
+.details-image {
+  width: 23em;
+}
+
+.details-text-holder {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}

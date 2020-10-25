@@ -5,6 +5,7 @@ import Header from '../Components/Header'
 
 
 function JobDetails(props) {
+  console.log(props,'iamprops')
   const [currentDetails, setCurrentDetails] = useState([])
 
   useEffect(() => {

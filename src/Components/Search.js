@@ -3,12 +3,12 @@ import React from 'react'
 import './Search.css'
 
 const Search = () => {
-    return (
-        <div className="Search-section">
-            <input className="search-box" type="text" placeholder="Search"/>
-            <button className="hamburger-menu"></button>
-        </div>
-    )
+  return (
+    <div className="Search-section">
+        <input className="search-box" type="text" placeholder="Search"/>
+        <button className="hamburger-menu"></button>
+    </div>
+  )
 }
 
 export default Search

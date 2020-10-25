@@ -7,22 +7,22 @@ import { Link } from 'react-router-dom'
 import fakeData from '../FakeData'
 
 const JobContainer = () => {
-    const [allJobs] = useState(fakeData.fakeJobs)
-    
-    const jobCards = allJobs.map(job => {
-      return (
-        <Link key={job.id} style={{textDecoration: 'none'}} to={`/details${job.id}`}>
-          <JobCard 
-            {...job}
-          />
-        </Link>
-      )
-    })
+  const [allJobs] = useState(fakeData.fakeJobs)
+  
+  const jobCards = allJobs.map(job => {
     return (
-        <div className="job-container">
-            {jobCards}
-        </div>
+      <Link key={job.id} style={{textDecoration: 'none'}} to={`/details${job.id}`}>
+        <JobCard 
+          {...job}
+        />
+      </Link>
     )
+  })
+  return (
+      <div className="job-container">
+          {jobCards}
+      </div>
+  )
 }
 
 export default JobContainer

@@ -6,13 +6,13 @@ import Search from '../Components/Search'
 import JobContainer from '../Components/JobContainer'
 
 const HomePage = () => {
-    return (
-      <>
-        <Header />
-        <Search />
-        <JobContainer />
-      </>
-    )
+  return (
+    <>
+      <Header />
+      <Search />
+      <JobContainer />
+    </>
+  )
 }
 
 export default HomePage

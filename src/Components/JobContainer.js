@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import './JobContainer.css'
 import JobCard from './JobCard'
 import { Link } from 'react-router-dom'
@@ -7,20 +7,19 @@ import { Link } from 'react-router-dom'
 import fakeData from '../FakeData'
 
 const JobContainer = () => {
-    const [allJobs, setAllJobs] = useState(fakeData.fakeJobs)
-
+    const [allJobs] = useState(fakeData.fakeJobs)
+    
     const jobCards = allJobs.map(job => {
-        return (
-            <Link style={{textDecoration: 'none'}} to={`/details${job.id}`}>
-                <JobCard 
-                    {...job}
-                    key={job.id}
-                />
-            </Link>
-        )
+      return (
+        <Link key={job.id} style={{textDecoration: 'none'}} to={`/details${job.id}`}>
+          <JobCard 
+            {...job}
+          />
+        </Link>
+      )
     })
     return (
-        <div>
+        <div className="job-container">
             {jobCards}
         </div>
     )

@@ -2,7 +2,7 @@ const fakeData = {
     fakeJobs: [{
             id: 1,
             title: 'Graphic Designer',
-            iconURL: 'https://www.flaticon.com/svg/static/icons/svg/2192/2192721.svg',
+            iconURL: 'https://www.flaticon.com/premium-icon/icons/svg/3270/3270930.svg',
             averageSalary: '$47k',
             description: 'Graphic designers develop graphics and layouts for product illustrations, company logos, websites and more.'
         },
@@ -30,35 +30,35 @@ const fakeData = {
         {
             id: 5,
             title: 'Accountant',
-            iconURL: 'https://www.flaticon.com/svg/static/icons/svg/1925/1925173.svg',
+            iconURL: 'https://www.flaticon.com/svg/static/icons/svg/2562/2562544.svg',
             averageSalary: '$60k',
             description: 'Accountants prepare and review financial reports and tax documents.'
         },
         {
             id: 6,
             title: 'Hair Stylist',
-            iconURL: 'https://www.flaticon.com/svg/static/icons/svg/599/599367.svg',
+            iconURL: 'https://www.flaticon.com/svg/static/icons/svg/843/843869.svg',
             averageSalary: '$30k',
             description: 'Hair Stylists are beauty service professionals who specialize in the fashioning and treatment of hair.'
         },
         {
             id: 7,
             title: 'Plumber',
-            iconURL: 'https://www.flaticon.com/svg/static/icons/svg/307/307873.svg',
+            iconURL: 'https://www.flaticon.com/svg/static/icons/svg/3125/3125561.svg',
             averageSalary: '$55k',
             description: 'A plumber is responsible for installing and repairing water systems in residential or commercial buildings.'
         },
         {
             id: 8,
             title: 'Pediatrician',
-            iconURL: 'https://www.flaticon.com/premium-icon/icons/svg/3323/3323583.svg',
+            iconURL: 'https://www.flaticon.com/svg/static/icons/svg/3468/3468872.svg',
             averageSalary: '$203k',
             description: 'General pediatricians provide care for infants, children, teenagers, and young adults.'
         },
         {
             id: 9,
             title: 'Microbiologist',
-            iconURL: 'https://www.flaticon.com/premium-icon/icons/svg/3051/3051239.svg',
+            iconURL: 'https://www.flaticon.com/svg/static/icons/svg/3035/3035512.svg',
             averageSalary: '$76k',
             description: 'Microbiologists study microorganisms such as bacteria, viruses, algae, fungi, and some types of parasites. They try to understand how these organisms live, grow, and interact with their environments.'
         },
@@ -72,7 +72,7 @@ const fakeData = {
         {
             id: 11,
             title: 'Lab Technician',
-            iconURL: 'https://www.flaticon.com/svg/static/icons/svg/3081/3081749.svg',
+            iconURL: 'https://www.flaticon.com/premium-icon/icons/svg/978/978961.svg',
             averageSalary: '$35k',
             description: 'Prepare and in some cases process samples within a laboratory setting.'
         },
@@ -86,7 +86,7 @@ const fakeData = {
         {
             id: 13,
             title: 'Forensic Accountant',
-            iconURL: 'https://www.flaticon.com/svg/static/icons/svg/1265/1265944.svg',
+            iconURL: 'https://www.flaticon.com/svg/static/icons/svg/2322/2322972.svg',
             averageSalary: '$65k',
             description: 'Forensic accountants examine data to determine where missing money has gone and how to recover it.'
         },

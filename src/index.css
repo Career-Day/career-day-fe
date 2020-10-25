@@ -1,18 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Itim');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Itim;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: Itim;
 }
 
-main {
-  max-height: 50vh;
-  max-width: 20vw;
+html {
+  height: 100%;
+  width: 100vw;
 }

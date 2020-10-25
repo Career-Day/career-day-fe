@@ -7,10 +7,10 @@ import Header from '../Components/Header'
 function JobDetails(props) {
   const [currentDetails, setCurrentDetails] = useState([])
 
-useEffect(() => {
-setCurrentDetails(FakeData.fakeDetails[props.match.params.id])
-  }
-)
+  useEffect(() => {
+  setCurrentDetails(FakeData.fakeDetails[props.match.params.id])
+  }, [])
+
   return (
     <>
     <Header />

@@ -7,7 +7,7 @@ import Slider from './Slider'
 const Search = () => {
 const [advancedOpen, setAdvancedOpen] = useState(false)
 
-const hamToggle = (e) => {
+const hamToggle = () => {
     !advancedOpen ? setAdvancedOpen(true) : setAdvancedOpen(false)
 
 }

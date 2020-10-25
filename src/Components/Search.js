@@ -4,21 +4,31 @@ import PropTypes from 'prop-types'
 import './Search.css'
 import Slider from './Slider'
 
-const Search = () => {
+const Search = ({filterSearch, sliderResults}) => {
+
 const [advancedOpen, setAdvancedOpen] = useState(false)
+const [searchInput, setSearchInput] = useState('')
 
-const hamToggle = () => {
+const hamToggle = ({allJobs}) => {
     !advancedOpen ? setAdvancedOpen(true) : setAdvancedOpen(false)
-
 }
+
+const changeHandler = (e) => {
+setSearchInput(e.target.value)
+filterSearch(searchInput)
+}
+
+
+
+
     return (
         <>
             <div className="Search-section">
-                <input type="text" placeholder="Search"/>
+                <input onChange={changeHandler} type="text" placeholder="Search"/>
                 <button onClick={hamToggle} className="hamburger-menu"></button>
             </div>
             <section style={{width:'100vw'}}>
-                {advancedOpen && <Slider />}
+                {advancedOpen && <Slider sliderResults={sliderResults} />}
             </section>
         </>
         

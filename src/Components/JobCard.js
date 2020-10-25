@@ -1,17 +1,22 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
+// import PropTypes from 'prop-types'
 import './JobCard.css'
+import colorData from '../ColorsData'
 
-const JobCard = ({title, imgURL, averageSalary, description, iconURL}) => {
+const JobCard = ({title, imgURL, averageSalary, description, iconURL, id}) => {
+    const num = id - 1
     return (
-        <div className="individual-job"
-         >
-             <section className="title-and-icon">
-            <img style={{height:'4em'}} src={iconURL} alt='profession-icon' />
-            <h3>{title}</h3>
-            <p style={{textAlign:'center'}}><div style={{display:'flex', flexFlow:'column'}}>Avg Salary:</div>{averageSalary}</p>
-             </section>
-            <p style={{margin: '.5em 0 1em .5em'}}>{description}</p>
+        <div
+          className="individual-job" 
+          style={{backgroundColor: colorData[num].color, 
+          borderLeft: `2em ${colorData[num].accentColor} solid` }}
+        >
+          <section className="title-and-icon">
+            <img style={{height:'3em'}} src={iconURL} alt='profession-icon' />
+            <h3 className="card-title">{title}</h3>
+          </section>
+          <p className="card-text-one"><b>Avg Salary:</b> {averageSalary}</p>
+          <p className="card-text-two">{description}</p>
         </div>
     )
 }

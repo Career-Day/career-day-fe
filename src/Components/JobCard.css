@@ -1,13 +1,30 @@
 .individual-job {
-  border: 1px solid green;
   flex-flow: column;
   display: flex;
-  width: 22em;
+  width: 85vw;
   margin: 0 .5em 1em .5em;
+  border-radius: .5em;
 }
 
 .title-and-icon {
   display: flex;
-  justify-content: space-around;
-  margin-top: .4em;
+  justify-content: space-between;
+  margin: .7em;
+}
+
+.card-text-one {
+  margin: 1em .2em 0 .5em
+}
+
+.card-text-two {
+  margin: 0 .2em 1em .5em
+}
+
+.card-title {
+  font-size: 1.5em;
+  margin: 5px;
+}
+
+.Header-section {
+  display: flex;
 }

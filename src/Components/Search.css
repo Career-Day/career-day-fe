@@ -1,14 +1,25 @@
 .Search-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100vw;
-    padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  width: 100vw;
+  padding: 10px;
 }
 
 .hamburger-menu {
-    background-image: url(/Hamburger.png);
-    background-size: cover;
-    width: 20px;
-    border: none;
+  background-image: url(/Hamburger.png);
+  background-color: white;
+  width: 3em;
+  height: 3em;
+  border: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 3em;
+}
+
+.search-box {
+  height: 2em;
+  width: 15em;
+  border-radius: .3em;
 }

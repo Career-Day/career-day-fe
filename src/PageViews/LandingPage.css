@@ -1,37 +1,40 @@
 .landing-page-cartoon {
-    position: fixed;
-    top: 30%;
-    height: 35vh;
-    width: 100vw;
-  }
+  position: fixed;
+  top: 30%;
+  height: 35vh;
+  width: 100vw;
+}
   
-  .landing-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    background-color: #5174DF;
-    height: 100vh;
-    width: 100vw;
-  }
-  
-  h1 {
-    margin: 0;
-    padding: 15px;
-    align-self: center;
-    background-color: #5174DF;
-    width: 100vw;
-    display: inline-block;
-    padding-top: 20vh;
-    color: white
-  }
-  
-  .landing-page-text-and-button {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    padding-bottom: 40vh;
-    color: white;
-  }
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(0deg, rgb(65, 102, 216) 0%, rgb(79, 117, 223) 100%);
+  height: 100vh;
+  width: 100vw;
+}
+
+h1 {
+  color: white;
+  font-size: 3em;
+  z-index: 100;
+}
+
+.landing-page-text-and-button {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 2em;
+  color: white;
+  font-size: 1.2em;
+}
+.explore-button {
+  text-decoration: none;
+  background-color: #12CDD4;
+  padding: 10px;
+  border-radius: 5px;;
+  color: white;
+}

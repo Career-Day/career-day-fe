@@ -1,8 +1,32 @@
-.Header-section {
-    display: flex;
-    height: 15vh;
-    width: 100vw;
-    background-color: aqua;
-    align-items: center;
-    justify-content: space-around;
+.header-section {
+  display: flex;
+  height: 12vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.profile-image,
+.back-button {
+  background-color: white;
+  height: 3em;
+  border: none;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.profile-image {
+  background-image: url(/Profile.png);
+  background-size: 4em;
+  width: 3em;
+}
+
+.back-button {
+  background-image: url(/BackArrow.png);
+  background-size: 2.2em;
+  width: 4em;
+}
+
+.header-text{
+  font-size: 2em;
 }

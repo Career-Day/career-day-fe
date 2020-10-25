@@ -9,21 +9,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    background-color: #5174DF;
+    justify-content: space-around;
+    background: linear-gradient(0deg, rgb(65, 102, 216) 0%, rgb(85, 122, 224) 100%);
     height: 100vh;
     width: 100vw;
   }
   
   h1 {
-    margin: 0;
-    padding: 15px;
-    align-self: center;
-    background-color: #5174DF;
-    width: 100vw;
-    display: inline-block;
-    padding-top: 20vh;
-    color: white
+    color: white;
+    font-size: 3em;
+    z-index: 100;
   }
   
   .landing-page-text-and-button {
@@ -32,6 +27,15 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    padding-bottom: 40vh;
+    padding: 2em;
+    color: white;
+    font-size: 1.2em;
+  }
+
+  .explore-button {
+    text-decoration: none;
+    background-color: #12CDD4;
+    padding: 10px;
+    border-radius: 5px;;
     color: white;
   }

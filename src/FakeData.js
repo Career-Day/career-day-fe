@@ -109,6 +109,7 @@ const fakeData = {
             id: 1,
             title: 'Graphic Designer',
             imgURL: 'https://www.freepik.com/blog/app/uploads/2018/07/PIN-BLOG-1270x720-What-is-the-difference-between-an-illustrator-and-a-graphic-designer-1.jpg',
+            video_url: 'https://www.youtube.com/watch?v=kqwgs7vBMkU',
             minSalary: '$35k',
             maxSalary: '$60k',
             description: 'Graphic designers are visual communicators, who create visual concepts by hand or by using computer software. They communicate ideas to inspire, inform, or captivate consumers through both physical and virtual art forms that include images, words, or graphics. The end goal of graphic designers is to make the organizations that hire them more well known by their designs. By using a variety of media they communicate a particular idea to be used in advertising and promotions. These media include fonts, shapes, colors, images, print design, photography, animation, logos, and billboards. Graphic designers often work on projects with artists, multimedia animators and other creative professionals.'

@@ -1,9 +1,9 @@
 .Search-section {
   display: flex;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  width: 100vw;
+  width: auto;
   padding: 10px;
 }
 
@@ -19,7 +19,16 @@
 }
 
 .search-box {
-  height: 2em;
+  height: auto;
   width: 15em;
   border-radius: .3em;
+}
+
+.slider-sec {
+  width: 80vw;
+}
+
+.search-box-button-sec {
+  display: flex;
+  align-content: center;
 }

@@ -4,11 +4,28 @@
 }
 
 .details-image {
-  width: 23em;
+  width: 100vw
 }
 
 .details-text-holder {
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 90vw;
+  margin-left: 5%;
+}
+
+.player-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
+  position: relative;
+  width: 90vw;
+  margin-left: 5%;
+  padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

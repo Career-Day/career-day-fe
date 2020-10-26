@@ -15,11 +15,11 @@ const JobDetails = (props) => {
     <>
     <Header />
       <div className="jobDetails-page">
-        <img className="details-image" src={currentDetails.imgURL} alt='Details' />
+        <img className="details-image" src={currentDetails.image_url} alt='Details' />
         <div className="details-text-holder">
           <h2>{currentDetails.title}</h2>
-          <p><b>Salary Range:</b>{currentDetails.minSalary} -  {currentDetails.maxSalary}</p>
-          <p><b>Description:</b> {currentDetails.description}</p>
+          <p><b>Salary Range:</b>{currentDetails.min_salary} -  {currentDetails.max_salary}</p>
+          <p><b>Description:</b> {currentDetails.long_description}</p>
         </div>
         <div className="player-wrapper">
           <ReactPlayer 

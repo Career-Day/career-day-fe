@@ -18,7 +18,7 @@ const filterSearch = (search) => {
      setFilteredResults(allJobs)
     } else {
       search.toLowerCase()
-      let results = allJobs.filter(job => job.title.toLowerCase().includes(search) || job.description.toLowerCase().includes(search))
+      let results = allJobs.filter(job => job.title.toLowerCase().includes(search) || job.short_description.toLowerCase().includes(search))
       setFilteredResults(results)
     }
   }

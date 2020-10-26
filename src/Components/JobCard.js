@@ -1,9 +1,8 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
 import './JobCard.css'
 import colorData from '../ColorsData'
 
-const JobCard = ({title, imgURL, averageSalary, description, iconURL, id}) => {
+const JobCard = ({title, averageSalary, description, iconURL, id}) => {
   const num = id - 1
   return (
     <div

@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
-// import PropTypes from 'prop-types'
+import React from 'react'
 import './JobContainer.css'
 import JobCard from './JobCard'
 import { Link } from 'react-router-dom'
 
-
-
 const JobContainer = ({displayedJobs}) => {
-  console.log(displayedJobs, 'displayedjobs')
+  console.log(displayedJobs, 'displayedJobs')
   
   const jobCards = displayedJobs.map(job => {
     return (

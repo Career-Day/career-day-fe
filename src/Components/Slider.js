@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
-// import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import Tooltip from 'rc-tooltip';
+import './Search.css'
 
 const Slider = require('rc-slider');
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
@@ -10,18 +9,24 @@ const Range = createSliderWithTooltip(Slider.Range);
 const Selector = ({sliderResults}) => {
   const [sliderValues, setSliderValues] = useState([0,400])
 
- const setRange = (value) => {
-   setSliderValues(value)
-  sliderResults(sliderValues)
+  const setRange = (value) => {
+    setSliderValues(value)
+    sliderResults(sliderValues)
   }
-
-
-
-return(
-  <>
-    <Range onChange={setRange} min={0} max={400} defaultValue={sliderValues} tipFormatter={value => `${value}k`} tipProps={{ placement:'top' }} />
-  </>
-)
+  
+  return(
+    <div className="slider-sec">
+      <p><b>Salary Range:</b> {sliderValues[0]}k - {sliderValues[1]}k</p>
+      <Range 
+        onChange={setRange} 
+        min={0} 
+        max={400} 
+        defaultValue={sliderValues} 
+        tipFormatter={value => `${value}k`} 
+        tipProps={{ placement:'top', delayHide: '10000'}} 
+      />
+    </div>
+  )
 }
 
 export default Selector

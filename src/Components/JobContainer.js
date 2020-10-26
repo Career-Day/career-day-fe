@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 
 
 const JobContainer = ({displayedJobs}) => {
-  console.log(displayedJobs, 'displayedjobs')
   
   const jobCards = displayedJobs.map(job => {
     return (

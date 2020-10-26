@@ -8,7 +8,7 @@ const JobContainer = ({displayedJobs}) => {
   
   const jobCards = displayedJobs.map(job => {
     return (
-      <Link key={job.id} style={{textDecoration: 'none'}} to={`/details${job.id - 1}`}>
+      <Link key={job.id} style={{textDecoration: 'none'}} to={`/details${job.id}`}>
         <JobCard 
           {...job}
         />

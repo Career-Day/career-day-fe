@@ -21,13 +21,13 @@ const JobDetails = (props) => {
   }, [])
 
   return (
-    <div className='job-details-page' style={{background: colorData[random].color, height: '124vh'}}>
+    <div className='job-details-page' style={{background: colorData[random].color}}>
     <Header />
-      <div className="jobDetails-page">
+      <div className="job-details-section">
         <img className="details-image" src={currentDetails.image_url} alt='Details' />
         <div className="details-text-holder">
           <h2>{currentDetails.title}</h2>
-          <p><b>Salary Range:</b>{currentDetails.min_salary} -  {currentDetails.max_salary}</p>
+          <p><b>Salary Range: </b>${currentDetails.min_salary} -  ${currentDetails.max_salary}</p>
           <p><b>Description:</b> {currentDetails.long_description}</p>
         </div>
         <div className="player-wrapper">

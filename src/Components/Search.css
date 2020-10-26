@@ -9,7 +9,7 @@
 
 .hamburger-menu {
   background-image: url(/Hamburger.png);
-  background-color: white;
+  background-color: transparent;
   width: 3em;
   height: 3em;
   border: none;

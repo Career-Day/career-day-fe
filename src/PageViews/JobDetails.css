@@ -1,6 +1,7 @@
-.jobDetails-page {
+.job-details-section {
   display: flex;
   flex-flow: column;
+  height: fit-content;
 }
 
 .details-image {
@@ -12,6 +13,11 @@
   flex-direction: column;
   width: 90vw;
   margin-left: 5%;
+}
+
+.job-details-page {
+  width: 100vw;
+  height:fit-content;
 }
 
 .player-wrapper {

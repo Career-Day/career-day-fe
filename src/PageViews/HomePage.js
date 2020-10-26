@@ -16,7 +16,18 @@ const HomePage = () => {
   let random = Math.floor(Math.random() * (colorData.length))
 
 const sliderResults = (values) => {
-console.log(values, 'thisisvalues')
+//   console.log(values)
+//  let numberResults =  filteredResults.map(job => {
+//   let stringNum = job.avg_salary
+//   console.log(job.avg_salary)
+//     // let noCommaNum = stringNum.split(',')
+
+
+//     let salaryNum =  Number(job.avg_salary)
+//     job.avg_salary = salaryNum
+//    return job
+//   })
+// console.log(numberResults, 'iamnumberresults')
 }
 
    useEffect(() => {
@@ -48,7 +59,10 @@ const filterSearch = (search) => {
     {console.log(allJobs, 'iamalljobs')}
     {console.log(filteredResults, 'iamfilteredresults')}
       <Header />
-      <Search sliderResults={sliderResults} filterSearch={filterSearch} allJobs={allJobs}  />
+      <Search 
+      sliderResults={sliderResults} 
+      filterSearch={filterSearch} 
+      allJobs={allJobs}  />
       <JobContainer displayedJobs={filteredResults} />
     </div>
   )

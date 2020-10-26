@@ -7,7 +7,7 @@ const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
  
 const Selector = ({sliderResults}) => {
-  const [sliderValues, setSliderValues] = useState([0,400])
+  const [sliderValues, setSliderValues] = useState([0,400000])
 
   const setRange = (value) => {
     setSliderValues(value)
@@ -16,13 +16,13 @@ const Selector = ({sliderResults}) => {
   
   return(
     <div className="slider-sec">
-      <p><b>Salary Range:</b> {sliderValues[0]}k - {sliderValues[1]}k</p>
+      <p><b>Salary Range:</b> {sliderValues[0]} - {sliderValues[1]}</p>
       <Range 
         onChange={setRange} 
         min={0} 
-        max={400} 
+        max={400000} 
         defaultValue={sliderValues} 
-        tipFormatter={value => `${value}k`} 
+        tipFormatter={value => `${value}`} 
         tipProps={{ placement:'top', delayHide: '10000'}} 
       />
     </div>

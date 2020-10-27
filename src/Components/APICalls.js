@@ -6,7 +6,6 @@ export const fetchAllJobs = async () => {
       }
     })
   const data = (await response).json()
-  console.log(data)
   return data
 }
 
@@ -15,10 +14,9 @@ const fetchSingleJob = async (id) => {
     headers: {
       "Target-URL": `https://careerdaybe.herokuapp.com/api/v1/jobs/${id}`,
     },
-  });
-  const data = (await response).json();
-  console.log(data);
-  return data;
-};
+  })
+  const data = (await response).json()
+  return data
+}
 
 export default fetchSingleJob

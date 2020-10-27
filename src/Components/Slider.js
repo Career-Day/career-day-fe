@@ -5,22 +5,30 @@ import './Search.css'
 const Slider = require('rc-slider');
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
+let displayValues = ['10', '300']
  
 const Selector = ({sliderResults}) => {
-  const [sliderValues, setSliderValues] = useState([0,400000])
+  const [sliderValues, setSliderValues] = useState([10000,300000])
 
   const setRange = (value) => {
     setSliderValues(value)
     sliderResults(sliderValues)
+    displayValues = [convertDisplayValues(sliderValues[0]), convertDisplayValues(sliderValues[1])]
+  }
+
+  const convertDisplayValues = (value) => {
+    let result = value.toString().split('')
+    result.splice(-3)
+    return result.join('')
   }
   
   return(
     <div className="slider-sec">
-      <p><b>Salary Range:</b> {sliderValues[0]} - {sliderValues[1]}</p>
+      <p><b>Salary Range:</b> ${displayValues[0]}k - ${displayValues[1]}k</p>
       <Range 
         onChange={setRange} 
-        min={0} 
-        max={400000} 
+        min={10000} 
+        max={300000} 
         defaultValue={sliderValues} 
         tipFormatter={value => `${value}`} 
         tipProps={{ placement:'top', delayHide: '10000'}} 

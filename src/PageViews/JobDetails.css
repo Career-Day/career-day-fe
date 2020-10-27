@@ -13,11 +13,17 @@
   flex-direction: column;
   width: 90vw;
   margin-left: 5%;
+  margin-right: 3px;
 }
 
 .job-details-page {
   width: 100vw;
   height:fit-content;
+}
+
+.side-color{
+  border-left: 10px rgb(113, 210, 255) solid;
+  padding-left: 5px;
 }
 
 .player-wrapper {

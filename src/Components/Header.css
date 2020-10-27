@@ -16,8 +16,9 @@
 }
 
 .profile-image {
-  background-image: url(/Profile.png);
-  background-size: 4em;
+  background-image: url(/user.png);
+  /* background-image: url(/Profile.png); */
+  background-size: 3em;
   width: 3em;
 }
 
@@ -29,4 +30,9 @@
 
 .header-text{
   font-size: 2em;
+}
+
+.header-text {
+  text-decoration: none;
+  color: black
 }

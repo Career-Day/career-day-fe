@@ -2,3 +2,8 @@
   width: 100vw;
   margin-top: 2em;
 }
+
+.no-results-text {
+  text-align: center;
+  margin: 5px
+}

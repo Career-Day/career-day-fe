@@ -4,66 +4,61 @@ import './HomePage.css'
 import Header from '../Components/Header'
 import Search from '../Components/Search'
 import JobContainer from '../Components/JobContainer'
-import colorData from '../ColorsData'
-import fakeData from '../FakeData'
+// import colorData from '../ColorsData'
 import { fetchAllJobs } from '../Components/APICalls'
 
-
 const HomePage = () => {
-  
   const [allJobs, setAllJobs] = useState([])
-  const [filteredResults, setFilteredResults] = useState([])
-  let random = Math.floor(Math.random() * (colorData.length))
+  const [displayedData, setDisplayedData] = useState([])
+  const [searching, setSearching] = useState(false)
 
-const sliderResults = (values) => {
-//   console.log(values)
-//  let numberResults =  filteredResults.map(job => {
-//   let stringNum = job.avg_salary
-//   console.log(job.avg_salary)
-//     // let noCommaNum = stringNum.split(',')
+  const sliderResults = (values) => {
+    setSearching(true)
+    let results = allJobs.filter(job => (job.avg_salary >= values[0] && 
+      job.avg_salary <= values[1]))
+    setDisplayedData(results)
+  }
 
-
-//     let salaryNum =  Number(job.avg_salary)
-//     job.avg_salary = salaryNum
-//    return job
-//   })
-// console.log(numberResults, 'iamnumberresults')
-}
-
-   useEffect(() => {
-     let data = null
-     async function getJobs() {
-       data = await fetchAllJobs()
-       console.log(data)
-       await setAllJobs(data.jobs)
-       setFilteredResults(data.jobs)
-     }
-     getJobs()
-   }, [])
-  
-
-
-const filterSearch = (search) => {
-  if(search === '') {
-     setFilteredResults(allJobs)
-    } else {
-      search.toLowerCase()
-      let results = allJobs.filter(job => job.title.toLowerCase().includes(search) || job.description.toLowerCase().includes(search))
-      setFilteredResults(results)
+  useEffect(() => {
+    let data = null
+    async function getJobs() {
+      data = await fetchAllJobs()
+      changeDataSetToNums(data.jobs)
     }
-}
+    getJobs()
+  }, [])
+  
+  const changeDataSetToNums = (data) => {
+    let numberResults =  data.map(job => {
+      let noCommaNum = job.avg_salary.split(',').join('')
+      let num = parseInt(noCommaNum)
+      job.avg_salary = num
+      return job
+    })
+    setAllJobs(numberResults)
+    setDisplayedData(numberResults)
+  }
 
+  const filterSearch = (search) => {
+    setSearching(true)
+    search.toLowerCase()
+    let results = allJobs.filter(job => job.title.toLowerCase().includes(search) || 
+      job.short_description.toLowerCase().includes(search))
+    setDisplayedData(results)
+  }
 
   return (
-    <div className='jobs-page' style={{border:'2px solid green', background: colorData[random].color }}>
-    {console.log(allJobs, 'iamalljobs')}
-    {console.log(filteredResults, 'iamfilteredresults')}
+    <div className='jobs-page' >
       <Header />
       <Search 
-      sliderResults={sliderResults} 
-      filterSearch={filterSearch} 
-      allJobs={allJobs}  />
-      <JobContainer displayedJobs={filteredResults} />
+        sliderResults={sliderResults} 
+        filterSearch={filterSearch} 
+        allJobs={allJobs} 
+      />
+      <JobContainer 
+        displayedJobs={displayedData} 
+        searching={searching}
+      />
     </div>
   )
 }

@@ -14,7 +14,7 @@ const HomePage = () => {
   const [values, setValues] = useState([])
   const [searchInput, setSearchInput] = useState('')
 
-  const sliderResults = (values) => {
+  const searchJobsBySalaryRange = (values) => {
     setValues(values)
     setSearching(true)
     if(searchInput.length > 0) {
@@ -32,7 +32,9 @@ const HomePage = () => {
     let data = null
     async function getJobs() {
       data = await fetchAllJobs()
-      changeDataSetToNums(data.jobs)
+      const newData = changeDataSetToNums(data.jobs)
+      setAllJobs(newData)
+      setDisplayedData(newData)
     }
     getJobs()
   }, [])
@@ -44,12 +46,10 @@ const HomePage = () => {
       job.avg_salary = num
       return job
     })
-    setAllJobs(numberResults)
-    setDisplayedData(numberResults)
+    return numberResults
   }
 
-  const filterSearch = (search) => {
-    
+  const searchJobsByInput = (search) => {
     setSearching(true)
     if(values.length > 0) {
       let smallSearch = search.toLowerCase()
@@ -72,8 +72,8 @@ const HomePage = () => {
     <div className='jobs-page' >
       <Header />
       <Search 
-        sliderResults={sliderResults} 
-        filterSearch={filterSearch} 
+        searchJobsBySalaryRange={searchJobsBySalaryRange} 
+        searchJobsByInput={searchJobsByInput} 
         allJobs={allJobs} 
       />
       <JobContainer 

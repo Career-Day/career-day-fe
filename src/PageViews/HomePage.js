@@ -11,12 +11,21 @@ const HomePage = () => {
   const [allJobs, setAllJobs] = useState([])
   const [displayedData, setDisplayedData] = useState([])
   const [searching, setSearching] = useState(false)
+  const [values, setValues] = useState([])
+  const [searchInput, setSearchInput] = useState('')
 
   const sliderResults = (values) => {
+    setValues(values)
     setSearching(true)
-    let results = allJobs.filter(job => (job.avg_salary >= values[0] && 
-      job.avg_salary <= values[1]))
-    setDisplayedData(results)
+    if(searchInput.length > 0) {
+      let results = allJobs.filter(job => ((job.avg_salary >= values[0] && 
+        job.avg_salary <= values[1]) && (job.title.toLowerCase().includes(searchInput) || 
+      job.short_description.toLowerCase().includes(searchInput))))
+      setDisplayedData(results)
+    } else {
+      let results = allJobs.filter(job => (job.avg_salary >= values[0] && job.avg_salary <= values[1]))
+      setDisplayedData(results)
+    }
   }
 
   useEffect(() => {
@@ -40,11 +49,23 @@ const HomePage = () => {
   }
 
   const filterSearch = (search) => {
+    
     setSearching(true)
-    search.toLowerCase()
-    let results = allJobs.filter(job => job.title.toLowerCase().includes(search) || 
-      job.short_description.toLowerCase().includes(search))
-    setDisplayedData(results)
+    if(values.length > 0) {
+      let smallSearch = search.toLowerCase()
+      setSearchInput(smallSearch)
+      let results = allJobs.filter(job => (job.title.toLowerCase().includes(smallSearch) || 
+        job.short_description.toLowerCase().includes(smallSearch)) && (job.avg_salary >= values[0] && 
+        job.avg_salary <= values[1]))
+      setDisplayedData(results)
+    } else {
+      let smallSearch = search.toLowerCase()
+      setSearchInput(smallSearch)
+      let results = allJobs.filter(job => job.title.toLowerCase().includes(smallSearch) ||
+        job.short_description.toLowerCase().includes(smallSearch))
+      setDisplayedData(results)
+    }
+
   }
 
   return (

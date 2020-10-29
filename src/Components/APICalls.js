@@ -9,7 +9,7 @@ export const fetchAllJobs = async () => {
   return data
 }
 
-const fetchSingleJob = async (id) => {
+export const fetchSingleJob = async (id) => {
   const response = fetch("https://fe-cors-proxy.herokuapp.com", {
     headers: {
       "Target-URL": `https://careerdaybe.herokuapp.com/api/v1/jobs/${id}`,

@@ -8,11 +8,12 @@ const JobDetails = (props) => {
   const [currentDetails, setCurrentDetails] = useState([])
 
   useEffect(() => {
-    const getSingleJob = async() => {
-    const data = await fetchSingleJob(props.match.params.id)
-    setCurrentDetails(data.job)
-  }
-  getSingleJob()
+    const getSingleJob = async () => {
+      const data = await fetchSingleJob(props.match.params.id)
+      console.log(data)
+      setCurrentDetails(data.job)
+    }
+    getSingleJob()
   }, [])
 
   return (

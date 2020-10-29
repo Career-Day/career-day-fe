@@ -1,4 +1,4 @@
-const fakeData = {
+export const fakeData = {
     fakeJobs: [{
             id: 1,
             title: 'Graphic Designer',
@@ -228,4 +228,128 @@ const fakeData = {
         }
     ]
 }
-export default fakeData
+
+
+export const mockFetchAll = {
+    "jobs": [{
+            "avg_salary": "47,500",
+            "education": "Bachelor's degree in graphic design",
+            "icon_url": "https://www.flaticon.com/svg/static/icons/svg/2192/2192721.svg",
+            "id": 1,
+            "short_description": "Graphic designers develop graphics and layouts for product illustrations, company logos, websites and more.",
+            "title": "Graphic Designer"
+        },
+        {
+            "avg_salary": "90,000",
+            "education": "Bachelor's degree in computer Science or trade school",
+            "icon_url": "https://www.flaticon.com/svg/static/icons/svg/2463/2463510.svg",
+            "id": 2,
+            "short_description": "Researching, designing, implementing and managing software programs.",
+            "title": "Software Dev"
+        },
+        {
+            "avg_salary": "170,000",
+            "education": "Bachlor's degree and a Doctor of Dental Surgery Degree (DDS) or a Doctor of Medicine in Dentistry Degree (DMD)",
+            "icon_url": "https://www.flaticon.com/svg/static/icons/svg/994/994888.svg",
+            "id": 3,
+            "short_description": "Promote and assist in disease prevention and oral health.",
+            "title": "Dentist"
+        },
+        {
+            "avg_salary": "115,000",
+            "education": "Bachelor's degree - computer science, math, economics, statistics.",
+            "icon_url": "https://www.flaticon.com/svg/static/icons/svg/1925/1925173.svg",
+            "id": 4,
+            "short_description": "Data scientists utilize their analytical, statistical, and programming skills to collect, analyze, and interpret large data sets.",
+            "title": "Data Scientist"
+        },
+        {
+            "avg_salary": "60,500",
+            "education": "Bachelor's degree minimum, CPA/Master's would be better",
+            "icon_url": "https://www.flaticon.com/svg/static/icons/svg/1925/1925173.svg",
+            "id": 5,
+            "short_description": "Accountants prepare and review financial reports and tax documents.",
+            "title": "Accountant"
+        },
+        {
+            "avg_salary": "30,000",
+            "education": "Associate's Degree in Cosmetology",
+            "icon_url": "https://www.flaticon.com/svg/static/icons/svg/599/599367.svg",
+            "id": 6,
+            "short_description": "Hair Stylists are beauty service professionals who specialize in the fashioning and treatment of hair.",
+            "title": "Hair Stylist"
+        },
+        {
+            "avg_salary": "65,500",
+            "education": "High School Diploma or equivalnet",
+            "icon_url": "https://www.flaticon.com/svg/static/icons/svg/307/307873.svg",
+            "id": 7,
+            "short_description": "A plumber is responsible for installing and repairing water systems in residential or commercial buildings.",
+            "title": "Plumber"
+        },
+        {
+            "avg_salary": "216,500",
+            "education": "Doctoral Degree",
+            "icon_url": "https://www.flaticon.com/premium-icon/icons/svg/3323/3323583.svg",
+            "id": 8,
+            "short_description": "General pediatricians provide care for infants, children, teenagers, and young adults.",
+            "title": "Pediatrician"
+        },
+        {
+            "avg_salary": "88,500",
+            "education": "Bachelor's degree",
+            "icon_url": "https://www.flaticon.com/premium-icon/icons/svg/3051/3051239.svg",
+            "id": 9,
+            "short_description": "Microbiologists study microorganisms such as bacteria, viruses, algae, fungi, and some types of parasites. They try to understand how these organisms live, grow, and interact with their environments.",
+            "title": "Microbiologist"
+        },
+        {
+            "avg_salary": "63,500",
+            "education": "Bachelors Degree in Business or Finance",
+            "icon_url": "https://www.flaticon.com/svg/static/icons/svg/1584/1584961.svg",
+            "id": 10,
+            "short_description": "Financial analysts invariably use spreadsheets (and statistical software packages) to analyze financial data, spot trends, and develop forecasts.",
+            "title": "Financial Analyst"
+        },
+        {
+            "avg_salary": "35,000",
+            "education": "High School Diploma or Associates Degree",
+            "icon_url": "https://www.flaticon.com/svg/static/icons/svg/3081/3081749.svg",
+            "id": 11,
+            "short_description": "Prepare and in some cases process samples within a laboratory setting.",
+            "title": "Lab Technician"
+        },
+        {
+            "avg_salary": "79,500",
+            "education": "Bachelors Degree in Zoology or Wildlife Biology",
+            "icon_url": "https://www.flaticon.com/svg/static/icons/svg/2424/2424348.svg",
+            "id": 12,
+            "short_description": "Zoologists study animals and their interactions with ecosystems.",
+            "title": "Zoologist"
+        },
+        {
+            "avg_salary": "65,000",
+            "education": "Bachelor's or master's degree in forensic accounting, accounting, finance or a related field is required for forensic accountants. Additional education in criminal justice or law enforcement is a plus.",
+            "icon_url": "https://www.flaticon.com/svg/static/icons/svg/1265/1265944.svg",
+            "id": 13,
+            "short_description": "Forensic accountants examine data to determine where missing money has gone and how to recover it. ",
+            "title": "Forensic Accountant"
+        },
+        {
+            "avg_salary": "89,500",
+            "education": "Bachelor's degree in Engineering",
+            "icon_url": "https://www.flaticon.com/premium-icon/icons/svg/2316/2316096.svg",
+            "id": 14,
+            "short_description": "Civil engineers design major transportation projects. ",
+            "title": "Civil Engineer"
+        },
+        {
+            "avg_salary": "129,000",
+            "education": "Bachlor's degree and a Doctor of Pharmacy (PharmD).",
+            "icon_url": "https://www.flaticon.com/svg/static/icons/svg/1256/1256535.svg",
+            "id": 15,
+            "short_description": "Provide medical advice and dispense medications. ",
+            "title": "Pharmacist"
+        }
+    ]
+}

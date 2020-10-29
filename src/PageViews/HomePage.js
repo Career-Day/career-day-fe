@@ -13,6 +13,7 @@ const HomePage = () => {
   const [searching, setSearching] = useState(false)
   const [values, setValues] = useState([])
   const [searchInput, setSearchInput] = useState('')
+  const [error, setError] = useState('')
 
   const sliderResults = (values) => {
     setValues(values)
@@ -29,10 +30,13 @@ const HomePage = () => {
   }
 
   useEffect(() => {
-    let data = null
     async function getJobs() {
-      data = await fetchAllJobs()
-      changeDataSetToNums(data.jobs)
+      try {
+       let data = await fetchAllJobs()
+        changeDataSetToNums(data.jobs)
+      } catch (error) {
+      setError(error)
+      }
     }
     getJobs()
   }, [])

@@ -19,8 +19,8 @@ const Search = ({filterSearch, sliderResults}) => {
     <>
       <div className="Search-section">
         <div className="search-box-button-sec">
-          <input onChange={changeHandler} type="text" placeholder="Search" className="search-box"/>
-          <button onClick={hamToggle} className="hamburger-menu"></button>
+          <input onChange={changeHandler} type="text" placeholder="Search" name="search" className="search-box"/>
+          <button data-testId='burgerbtn' alt='burgerbtn' onClick={hamToggle} className="hamburger-menu"></button>
         </div>
       {advancedOpen && 
         <section>

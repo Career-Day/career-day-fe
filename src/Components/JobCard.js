@@ -6,6 +6,7 @@ const JobCard = ({title, avg_salary, short_description, icon_url, id}) => {
   const num = id - 1
   return (
     <div
+      alt='single-job'
       className="individual-job" 
       style={{backgroundColor: colorData[num].color, 
       borderLeft: `2em ${colorData[num].accentColor} solid` }}

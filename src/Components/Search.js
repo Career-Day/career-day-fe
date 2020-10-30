@@ -3,7 +3,7 @@ import './Search.css'
 import Slider from './Slider'
 import PropTypes from 'prop-types'
 
-const Search = ({searchJobsByInput, searchJobsBySalaryRange}) => {
+const Search = ({ searchJobsByInput, searchJobsBySalaryRange }) => {
   const [advancedOpen, setAdvancedOpen] = useState(false)
   const [searchInput, setSearchInput] = useState('')
   

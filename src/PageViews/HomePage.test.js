@@ -43,11 +43,10 @@ it('should render a loading message', () => {
    let slider = await waitFor(() => screen.getByText('Salary Range:'))
    expect(slider).toBeInTheDocument()
  })
-
-//  it('should have a description for each job', async() => {
-//     fetchAllJobs.mockResolvedValue(mockFetchAll)
+//  it('should have a description for each job', async () => {
+//     fetchAllJobs.mockResolvedValue(mockFetchAll);
 //     render(<MemoryRouter><HomePage /></MemoryRouter>)
-//   let singleDescription = await waitFor(() => screen.getByText(/graphic designers develop graphics and layouts for product illustrations, company logos, websites and more./i))
+//   let singleDescription = await waitFor(() => screen.getByTestId('description'))
 //     expect(singleDescription).toBeInTheDocument()
 //  })
 })

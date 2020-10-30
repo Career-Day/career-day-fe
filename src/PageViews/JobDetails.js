@@ -6,13 +6,18 @@ import fetchSingleJob from '../Components/APICalls'
 
 const JobDetails = (props) => {
   const [currentDetails, setCurrentDetails] = useState([])
+  const [error, setError] = useState('')
 
   useEffect(() => {
-    const getSingleJob = async() => {
-    const data = await fetchSingleJob(props.match.params.id)
-    setCurrentDetails(data.job)
-  }
-  getSingleJob()
+    const getSingleJob = async () => {
+      try {
+      const data = await fetchSingleJob(props.match.params.id)
+      setCurrentDetails(data.job)
+      } catch (error) {
+        setError(error)
+      }
+    }
+    getSingleJob()
   }, [])
 
   return (
@@ -27,6 +32,7 @@ const JobDetails = (props) => {
         </div>
         <div className="player-wrapper">
           <ReactPlayer 
+            role="video"
             url={currentDetails.video_url}
             width='100%'
             height='100%'

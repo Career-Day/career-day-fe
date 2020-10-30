@@ -1,10 +1,8 @@
-import React, {useState, useEffect} from 'react'
-// import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react'
 import './HomePage.css'
 import Header from '../Components/Header'
 import Search from '../Components/Search'
 import JobContainer from '../Components/JobContainer'
-// import colorData from '../ColorsData'
 import { fetchAllJobs } from '../Components/APICalls'
 
 const HomePage = () => {
@@ -14,25 +12,13 @@ const HomePage = () => {
   const [values, setValues] = useState([])
   const [searchInput, setSearchInput] = useState('')
 
-  const sliderResults = (values) => {
-    setValues(values)
-    setSearching(true)
-    if(searchInput.length > 0) {
-      let results = allJobs.filter(job => ((job.avg_salary >= values[0] && 
-        job.avg_salary <= values[1]) && (job.title.toLowerCase().includes(searchInput) || 
-      job.short_description.toLowerCase().includes(searchInput))))
-      setDisplayedData(results)
-    } else {
-      let results = allJobs.filter(job => (job.avg_salary >= values[0] && job.avg_salary <= values[1]))
-      setDisplayedData(results)
-    }
-  }
-
   useEffect(() => {
     let data = null
     async function getJobs() {
       data = await fetchAllJobs()
-      changeDataSetToNums(data.jobs)
+      const newData = changeDataSetToNums(data.jobs)
+      setAllJobs(newData)
+      setDisplayedData(newData)
     }
     getJobs()
   }, [])
@@ -44,36 +30,52 @@ const HomePage = () => {
       job.avg_salary = num
       return job
     })
-    setAllJobs(numberResults)
-    setDisplayedData(numberResults)
+    return numberResults
   }
 
-  const filterSearch = (search) => {
-    
+  const searchJobsByInput = (search) => {
     setSearching(true)
+    let lowerCaseInput = search.toLowerCase()
+    setSearchInput(lowerCaseInput)
     if(values.length > 0) {
-      let smallSearch = search.toLowerCase()
-      setSearchInput(smallSearch)
-      let results = allJobs.filter(job => (job.title.toLowerCase().includes(smallSearch) || 
-        job.short_description.toLowerCase().includes(smallSearch)) && (job.avg_salary >= values[0] && 
-        job.avg_salary <= values[1]))
-      setDisplayedData(results)
+      searchBothSalaryAndInput()
     } else {
-      let smallSearch = search.toLowerCase()
-      setSearchInput(smallSearch)
-      let results = allJobs.filter(job => job.title.toLowerCase().includes(smallSearch) ||
-        job.short_description.toLowerCase().includes(smallSearch))
+      let results = allJobs.filter(job => 
+        job.title.toLowerCase().includes(lowerCaseInput) 
+        || job.short_description.toLowerCase().includes(lowerCaseInput)
+      )
       setDisplayedData(results)
     }
+  }
 
+  const searchJobsBySalaryRange = (values) => {
+    setSearching(true)
+    setValues(values)
+    if(searchInput.length > 0) {
+      searchBothSalaryAndInput()
+    } else {
+      let results = allJobs.filter(job => 
+        job.avg_salary >= values[0] && job.avg_salary <= values[1]
+      )
+      setDisplayedData(results)
+    }
+  }
+
+  const searchBothSalaryAndInput = () => {
+    let results = allJobs.filter(job => 
+      (job.title.toLowerCase().includes(searchInput) 
+        || job.short_description.toLowerCase().includes(searchInput)) 
+        && (job.avg_salary >= values[0] && job.avg_salary <= values[1])
+    )
+    setDisplayedData(results)
   }
 
   return (
     <div className='jobs-page' >
       <Header />
       <Search 
-        sliderResults={sliderResults} 
-        filterSearch={filterSearch} 
+        searchJobsBySalaryRange={searchJobsBySalaryRange} 
+        searchJobsByInput={searchJobsByInput} 
         allJobs={allJobs} 
       />
       <JobContainer 

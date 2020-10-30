@@ -12,12 +12,12 @@ describe('Header', () => {
   })
   it('should render a back button as a clickable link', () => {
     render(<BrowserRouter><Header /></BrowserRouter>)
-    let backbtn = screen.getByRole('link', { name: /back-btn/i })
+    let backbtn = screen.getByRole('link', { name: "" })
     expect(backbtn).toBeInTheDocument()
   })
   it('should have a default profile image icon', () => {
     render(<BrowserRouter><Header /></BrowserRouter>)
-    let icon = screen.getByRole('button', { name: /profile-image/i })
+    let icon = screen.getByRole('button', { name: "" })
     expect(icon).toBeInTheDocument()
   })
 })

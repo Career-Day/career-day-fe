@@ -55,6 +55,7 @@ describe('JobDetails', () => {
     })
 
     const jobName = await waitFor( () => screen.getByRole('heading', { name: 'Graphic Designer' }))
+    expect(fetchSingleJob).toHaveBeenCalled()
     expect(jobName).toBeInTheDocument()
   })
 })

@@ -105,7 +105,8 @@ export const fakeData = {
             short_description: 'Provide medical advice and dispense medications. '
         },
     ],
-    fakeDetails: [{
+    fakeDetails: [
+        {
             id: 1,
             title: 'Graphic Designer',
             image_url: 'https://www.freepik.com/blog/app/uploads/2018/07/PIN-BLOG-1270x720-What-is-the-difference-between-an-illustrator-and-a-graphic-designer-1.jpg',

@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import './Search.css'
 import Slider from './Slider'
+import PropTypes from 'prop-types'
 
-const Search = ({filterSearch, sliderResults, displayFavorites}) => {
+const Search = ({ searchJobsByInput, searchJobsBySalaryRange, displayFavorites }) => {
   const [advancedOpen, setAdvancedOpen] = useState(false)
   const [searchInput, setSearchInput] = useState('')
   
@@ -12,7 +13,7 @@ const Search = ({filterSearch, sliderResults, displayFavorites}) => {
   
   const changeHandler = (e) => {
     setSearchInput(e.target.value)
-    filterSearch(searchInput)
+    searchJobsByInput(searchInput)
   }
   
   return (
@@ -25,12 +26,18 @@ const Search = ({filterSearch, sliderResults, displayFavorites}) => {
       {advancedOpen && 
         <section>
           <h6 className="fav-display" onClick={displayFavorites}>My Favorites</h6>
-          <Slider sliderResults={sliderResults} />
+          <Slider searchJobsBySalaryRange={searchJobsBySalaryRange} />
+
         </section>
       }
       </div>
     </>  
   )
+}
+
+Search.propTypes = {
+  searchJobsByInput: PropTypes.func,
+  searchJobsBySalaryRange: PropTypes.func
 }
 
 export default Search

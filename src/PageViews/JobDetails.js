@@ -6,16 +6,20 @@ import fetchSingleJob from '../Components/APICalls'
 
 const JobDetails = (props) => {
   const [currentDetails, setCurrentDetails] = useState([])
-  const [isFavorite, setIsFavorite] = useState(false)
+  const [error, setError] = useState('')
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    const getSingleJob = async() => {
-    const data = await fetchSingleJob(props.match.params.id)
-   await setCurrentDetails(data.job)
-   checkFav(data.job)
-  }
-  getSingleJob()
-  
+    const getSingleJob = async () => {
+      try {
+      const data = await fetchSingleJob(props.match.params.id)
+      setCurrentDetails(data.job)
+      checkFav(data.job)
+      } catch (error) {
+        setError(error)
+      }
+    }
+    getSingleJob()
   }, [])
 
  const addToFavorites = (e) => {
@@ -54,6 +58,7 @@ const checkFav = async(data) => {
         </div>
         <div className="player-wrapper">
           <ReactPlayer 
+            role="video"
             url={currentDetails.video_url}
             width='100%'
             height='100%'

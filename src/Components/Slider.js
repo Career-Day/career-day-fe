@@ -1,18 +1,19 @@
 import React, {useState} from 'react'
 import 'rc-slider/assets/index.css';
 import './Search.css'
+import PropTypes from 'prop-types'
 
 const Slider = require('rc-slider');
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
 let displayValues = ['10', '300']
  
-const Selector = ({sliderResults}) => {
+const Selector = ({searchJobsBySalaryRange}) => {
   const [sliderValues, setSliderValues] = useState([10000,300000])
 
   const setRange = (value) => {
     setSliderValues(value)
-    sliderResults(sliderValues)
+    searchJobsBySalaryRange(sliderValues)
     displayValues = [convertDisplayValues(sliderValues[0]), convertDisplayValues(sliderValues[1])]
   }
 
@@ -35,6 +36,10 @@ const Selector = ({sliderResults}) => {
       />
     </div>
   )
+}
+
+Slider.propTypes = {
+  searchJobsBySalaryRange: PropTypes.func
 }
 
 export default Selector

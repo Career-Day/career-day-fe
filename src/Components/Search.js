@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './Search.css'
 import Slider from './Slider'
 
-const Search = ({filterSearch, sliderResults}) => {
+const Search = ({filterSearch, sliderResults, displayFavorites}) => {
   const [advancedOpen, setAdvancedOpen] = useState(false)
   const [searchInput, setSearchInput] = useState('')
   
@@ -24,6 +24,7 @@ const Search = ({filterSearch, sliderResults}) => {
         </div>
       {advancedOpen && 
         <section>
+          <h6 className="fav-display" onClick={displayFavorites}>My Favorites</h6>
           <Slider sliderResults={sliderResults} />
         </section>
       }

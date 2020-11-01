@@ -14,6 +14,7 @@ const HomePage = () => {
   const [values, setValues] = useState([])
   const [searchInput, setSearchInput] = useState('')
   const [error, setError] = useState('')
+  const [favoriteIds, setFavoriteIds] = useState([])
 
   const sliderResults = (values) => {
     setValues(values)
@@ -29,7 +30,37 @@ const HomePage = () => {
     }
   }
 
+  const gatherFavorites = async() => {
+    let allEntries = []
+    let keys = Object.keys(localStorage)
+    keys.forEach(key => {
+      let entry = localStorage.getItem(key)
+      allEntries.push(JSON.parse(entry))
+    })
+    await setFavoriteIds([...favoriteIds, allEntries])
+  }
+
+  const displayFavorites = (e) => {
+    let displayfavs = [];
+    if(!e.target.classList.contains('active')) {
+      e.target.classList.add('active')
+      allJobs.filter(job => {
+      favoriteIds.forEach(fav => {
+        if(fav == job.id && !displayfavs.includes(job)) {
+          displayfavs.push(job)
+          }
+       })
+      })
+      setDisplayedData(displayfavs)
+    } else {
+      e.target.classList.remove('active')
+      setDisplayedData(allJobs)
+    }
+    
+  }
+
   useEffect(() => {
+    gatherFavorites()
     async function getJobs() {
       try {
        let data = await fetchAllJobs()
@@ -76,9 +107,11 @@ const HomePage = () => {
     <div className='jobs-page' >
       <Header />
       <Search 
+        displayFavorites={displayFavorites}
         sliderResults={sliderResults} 
         filterSearch={filterSearch} 
-        allJobs={allJobs} 
+        allJobs={allJobs}
+        
       />
       <JobContainer 
         displayedJobs={displayedData} 

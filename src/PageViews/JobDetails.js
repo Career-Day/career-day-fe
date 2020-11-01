@@ -7,18 +7,41 @@ import fetchSingleJob from '../Components/APICalls'
 const JobDetails = (props) => {
   const [currentDetails, setCurrentDetails] = useState([])
   const [error, setError] = useState('')
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     const getSingleJob = async () => {
       try {
       const data = await fetchSingleJob(props.match.params.id)
       setCurrentDetails(data.job)
+      checkFav(data.job)
       } catch (error) {
         setError(error)
       }
     }
     getSingleJob()
   }, [])
+
+ const addToFavorites = (e) => {
+   let keyVal = currentDetails.id 
+   let storageKeys = Object.keys(localStorage)
+  if(storageKeys.includes(`Favorites${keyVal}`)) {
+    localStorage.removeItem(`Favorites${keyVal}`)
+    setIsFavorite(false)
+  } else {
+    localStorage.setItem(`Favorites${keyVal}`, JSON.stringify(currentDetails.id))
+    setIsFavorite(true)
+  }
+}
+
+const checkFav = async(data) => {
+    let keyVal = data.id 
+     let storageKeys = Object.keys(localStorage)
+   if(storageKeys.includes(`Favorites${keyVal}`)) {
+     setIsFavorite(true)
+   }
+  }
+
 
   return (
     <div className='job-details-page'>
@@ -28,6 +51,9 @@ const JobDetails = (props) => {
         <div className="details-text-holder">
           <h2 className="side-color">{currentDetails.title}</h2>
           <p className="side-color"><b>Salary Range: </b>${currentDetails.min_salary} -  ${currentDetails.max_salary}</p>
+          <div style={{display:'flex'}}>
+          <p className="side-color"><b>Add to Favorites</b></p><img onClick={addToFavorites} style={{height:'3em'}} src={isFavorite ? '/favoritefull.png' : '/favoriteempty.png'} alt='favoriteStar' />
+          </div>
           <p className="side-color"><b>Description:</b> {currentDetails.long_description}</p>
         </div>
         <div className="player-wrapper">

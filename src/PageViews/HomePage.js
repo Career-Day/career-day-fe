@@ -3,7 +3,7 @@ import './HomePage.css'
 import Header from '../Components/Header'
 import Search from '../Components/Search'
 import JobContainer from '../Components/JobContainer'
-import { fetchAllJobs } from '../Components/APICalls'
+import { fetchAllJobs } from '../api/APICalls'
 
 const HomePage = () => {
   const [allJobs, setAllJobs] = useState([])
@@ -14,20 +14,20 @@ const HomePage = () => {
   const [error, setError] = useState('')
   const [favoriteIds, setFavoriteIds] = useState([])
 
-  const sliderResults = (values) => {
-    setValues(values)
-    setSearching(true)
-    if(searchInput.length > 0) {
-      let results = allJobs.filter(job => ((job.avg_salary >= values[0] && 
-        job.avg_salary <= values[1]) && (job.title.toLowerCase().includes(searchInput) || 
-      job.short_description.toLowerCase().includes(searchInput))))
-      setDisplayedData(results)
-    } else {
-      let results = allJobs.filter(job => (job.avg_salary >= values[0] && job.avg_salary <= values[1]))
-      console.log(results)
-      setDisplayedData(results)
+  useEffect(() => {
+    gatherFavorites()
+    async function getJobs() {
+      try{
+        let data = await fetchAllJobs()
+        const newData = changeDataSetToNums(data.jobs)
+        setAllJobs(newData);
+        setDisplayedData(newData);
+      } catch (error) {
+        setError(error)
+      }
     }
-  }
+    getJobs()
+  }, [])
 
   const gatherFavorites = async() => {
     let allEntries = []
@@ -55,23 +55,7 @@ const HomePage = () => {
       e.target.classList.remove('active')
       setDisplayedData(allJobs)
     }
-    
   }
-
-  useEffect(() => {
-    gatherFavorites()
-    async function getJobs() {
-      try{
-        let data = await fetchAllJobs()
-        const newData = changeDataSetToNums(data.jobs)
-        setAllJobs(newData);
-        setDisplayedData(newData);
-      } catch (error) {
-        setError(error)
-      }
-    }
-    getJobs()
-  }, [])
 
   
   const changeDataSetToNums = (data) => {

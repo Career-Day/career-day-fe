@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router-dom'
 import '@testing-library/jest-dom'
 import MutationObserver from '@sheerun/mutationobserver-shim'
 window.MutationObserver = MutationObserver
-jest.mock('./Components/APICalls')
+jest.mock('./api/APICalls')
 
 describe('App', () => {
 

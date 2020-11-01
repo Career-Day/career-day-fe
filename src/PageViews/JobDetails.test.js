@@ -1,19 +1,19 @@
 import React from 'react'
 import '@testing-library/jest-dom'
 import { MemoryRouter } from 'react-router-dom'
-import { fetchSingleJob } from '../Components/APICalls'
+import { fetchSingleJob } from '../api/APICalls'
 import { render, screen, waitFor } from '@testing-library/react'
 import JobDetails from './JobDetails'
-import fakeData from '../FakeData'
 import { act } from 'react-dom/test-utils'
 import MutationObserver from '@sheerun/mutationobserver-shim'
 window.MutationObserver = MutationObserver
-jest.mock('../Components/APICalls')
+jest.mock('../api/APICalls')
 
 describe('JobDetails', () => {
 
   it('Should render the correct content on page load', () => {
     let match = {params: {id: '1'}}
+
     render(
       <MemoryRouter>
         <JobDetails

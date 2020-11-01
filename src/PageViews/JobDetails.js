@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './JobDetails.css'
 import Header from '../Components/Header'
 import ReactPlayer from "react-player/youtube";
-import fetchSingleJob from '../Components/APICalls'
+import fetchSingleJob from '../api/APICalls'
 
 const JobDetails = (props) => {
   const [currentDetails, setCurrentDetails] = useState([])
@@ -22,26 +22,25 @@ const JobDetails = (props) => {
     getSingleJob()
   }, [])
 
- const addToFavorites = (e) => {
-   let keyVal = currentDetails.id 
-   let storageKeys = Object.keys(localStorage)
-  if(storageKeys.includes(`Favorites${keyVal}`)) {
-    localStorage.removeItem(`Favorites${keyVal}`)
-    setIsFavorite(false)
-  } else {
-    localStorage.setItem(`Favorites${keyVal}`, JSON.stringify(currentDetails.id))
-    setIsFavorite(true)
+  const addToFavorites = (e) => {
+    let keyVal = currentDetails.id 
+    let storageKeys = Object.keys(localStorage)
+    if(storageKeys.includes(`Favorites${keyVal}`)) {
+      localStorage.removeItem(`Favorites${keyVal}`)
+      setIsFavorite(false)
+    } else {
+      localStorage.setItem(`Favorites${keyVal}`, JSON.stringify(currentDetails.id))
+      setIsFavorite(true)
+    }
   }
-}
 
-const checkFav = async(data) => {
+  const checkFav = async(data) => {
     let keyVal = data.id 
-     let storageKeys = Object.keys(localStorage)
-   if(storageKeys.includes(`Favorites${keyVal}`)) {
-     setIsFavorite(true)
-   }
+    let storageKeys = Object.keys(localStorage)
+    if(storageKeys.includes(`Favorites${keyVal}`)) {
+      setIsFavorite(true)
+    }
   }
-
 
   return (
     <div className='job-details-page'>

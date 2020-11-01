@@ -3,7 +3,7 @@ import './Search.css'
 import Slider from './Slider'
 import PropTypes from 'prop-types'
 
-const Search = ({ searchJobsByInput, searchJobsBySalaryRange }) => {
+const Search = ({ searchJobsByInput, searchJobsBySalaryRange, displayFavorites }) => {
   const [advancedOpen, setAdvancedOpen] = useState(false)
   const [searchInput, setSearchInput] = useState('')
   
@@ -20,12 +20,14 @@ const Search = ({ searchJobsByInput, searchJobsBySalaryRange }) => {
     <>
       <div className="Search-section">
         <div className="search-box-button-sec">
-          <input onChange={changeHandler} type="text" placeholder="Search" className="search-box"/>
-          <button onClick={hamToggle} className="hamburger-menu"></button>
+          <input onChange={changeHandler} type="text" placeholder="Search" name="search" className="search-box"/>
+          <button data-testId='burgerbtn' alt='burgerbtn' onClick={hamToggle} className="hamburger-menu"></button>
         </div>
       {advancedOpen && 
         <section>
+          <h6 className="fav-display" onClick={displayFavorites}>My Favorites</h6>
           <Slider searchJobsBySalaryRange={searchJobsBySalaryRange} />
+
         </section>
       }
       </div>

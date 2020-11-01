@@ -26,6 +26,7 @@ const HomePage = () => {
       setDisplayedData(results)
     } else {
       let results = allJobs.filter(job => (job.avg_salary >= values[0] && job.avg_salary <= values[1]))
+      console.log(results)
       setDisplayedData(results)
     }
   }
@@ -37,7 +38,7 @@ const HomePage = () => {
       let entry = localStorage.getItem(key)
       allEntries.push(JSON.parse(entry))
     })
-    await setFavoriteIds([...favoriteIds, allEntries])
+    await setFavoriteIds([...favoriteIds, ...allEntries])
   }
 
   const displayFavorites = (e) => {

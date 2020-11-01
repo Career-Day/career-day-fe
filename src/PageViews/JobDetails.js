@@ -48,7 +48,7 @@ const checkFav = async(data) => {
           <h2 className="side-color">{currentDetails.title}</h2>
           <p className="side-color"><b>Salary Range: </b>${currentDetails.min_salary} -  ${currentDetails.max_salary}</p>
           <div style={{display:'flex'}}>
-          <p>Add to Favorites</p><img onClick={addToFavorites} style={{height:'3em'}} src={isFavorite ? '/favoritefull.png' : '/favoriteempty.png'} alt='favoriteStar' />
+          <p className="side-color"><b>Add to Favorites</b></p><img onClick={addToFavorites} style={{height:'3em'}} src={isFavorite ? '/favoritefull.png' : '/favoriteempty.png'} alt='favoriteStar' />
           </div>
           <p className="side-color"><b>Description:</b> {currentDetails.long_description}</p>
         </div>

@@ -61,13 +61,18 @@ const HomePage = () => {
   useEffect(() => {
     gatherFavorites()
     async function getJobs() {
-      let data = await fetchAllJobs()
-      const newData = changeDataSetToNums(data.jobs)
-      setAllJobs(newData)
-      setDisplayedData(newData)
+      try{
+        let data = await fetchAllJobs()
+        const newData = changeDataSetToNums(data.jobs)
+        setAllJobs(newData);
+        setDisplayedData(newData);
+      } catch (error) {
+        setError(error)
+      }
     }
     getJobs()
   }, [])
+
   
   const changeDataSetToNums = (data) => {
     let numberResults =  data.map(job => {

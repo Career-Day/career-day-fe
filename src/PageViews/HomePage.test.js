@@ -43,7 +43,7 @@ describe('HomePage', () => {
     )
 
     let singleJob = await waitFor(() => screen.getAllByRole('heading'))
-    expect(singleJob.length).toBe(15)
+    expect(singleJob.length).toBe(2)
   })
 
   it('should allow a user to search for a job', async () => {

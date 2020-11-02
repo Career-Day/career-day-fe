@@ -24,8 +24,6 @@ describe('JobDetails', () => {
 
     expect(screen.getByRole('link', { name: 'Career Day' })).toBeInTheDocument()
     expect(screen.getAllByRole('button')).toHaveLength(1)
-    expect(screen.getByRole('img', { name: 'Details' })).toBeInTheDocument()
-    expect(screen.getByRole('video')).toBeInTheDocument()
   })
 
   it('Should get the job details on load', async () => {
@@ -55,7 +53,11 @@ describe('JobDetails', () => {
     })
 
     const jobName = await waitFor( () => screen.getByRole('heading', { name: 'Graphic Designer' }))
+    const image = await waitFor( () => screen.getByRole('img', { name: 'Details' }))
+    const video = await waitFor( () => screen.getByRole('video'))
     expect(fetchSingleJob).toHaveBeenCalled()
     expect(jobName).toBeInTheDocument()
+    expect(image).toBeInTheDocument()
+    expect(video).toBeInTheDocument()
   })
 })

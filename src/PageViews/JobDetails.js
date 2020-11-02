@@ -13,7 +13,6 @@ const JobDetails = (props) => {
     const getSingleJob = async () => {
       try {
       const data = await fetchSingleJob(props.match.params.id)
-      console.log(data)
       setCurrentDetails(data.job)
       checkFav(data.job)
       } catch (error) {
@@ -36,7 +35,6 @@ const JobDetails = (props) => {
   }
 
   const checkFav = async(data) => {
-    console.log(data)
     let keyVal = data.id 
     let storageKeys = Object.keys(localStorage)
     if(storageKeys.includes(`Favorites${keyVal}`)) {

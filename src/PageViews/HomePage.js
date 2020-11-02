@@ -3,7 +3,7 @@ import './HomePage.css'
 import Header from '../Components/Header'
 import Search from '../Components/Search'
 import JobContainer from '../Components/JobContainer'
-import { fetchAllJobs } from '../Components/APICalls'
+import { fetchAllJobs } from '../api/APICalls'
 
 const HomePage = () => {
   const [allJobs, setAllJobs] = useState([])
@@ -13,50 +13,6 @@ const HomePage = () => {
   const [searchInput, setSearchInput] = useState('')
   const [error, setError] = useState('')
   const [favoriteIds, setFavoriteIds] = useState([])
-
-  const sliderResults = (values) => {
-    setValues(values)
-    setSearching(true)
-    if(searchInput.length > 0) {
-      let results = allJobs.filter(job => ((job.avg_salary >= values[0] && 
-        job.avg_salary <= values[1]) && (job.title.toLowerCase().includes(searchInput) || 
-      job.short_description.toLowerCase().includes(searchInput))))
-      setDisplayedData(results)
-    } else {
-      let results = allJobs.filter(job => (job.avg_salary >= values[0] && job.avg_salary <= values[1]))
-      console.log(results)
-      setDisplayedData(results)
-    }
-  }
-
-  const gatherFavorites = async() => {
-    let allEntries = []
-    let keys = Object.keys(localStorage)
-    keys.forEach(key => {
-      let entry = localStorage.getItem(key)
-      allEntries.push(JSON.parse(entry))
-    })
-    await setFavoriteIds([...favoriteIds, ...allEntries])
-  }
-
-  const displayFavorites = (e) => {
-    let displayfavs = [];
-    if(!e.target.classList.contains('active')) {
-      e.target.classList.add('active')
-      allJobs.filter(job => {
-      favoriteIds.forEach(fav => {
-        if(fav == job.id && !displayfavs.includes(job)) {
-          displayfavs.push(job)
-          }
-       })
-      })
-      setDisplayedData(displayfavs)
-    } else {
-      e.target.classList.remove('active')
-      setDisplayedData(allJobs)
-    }
-    
-  }
 
   useEffect(() => {
     gatherFavorites()
@@ -73,6 +29,39 @@ const HomePage = () => {
     getJobs()
   }, [])
 
+  const gatherFavorites = async() => {
+    let allEntries = []
+    let keys = Object.keys(localStorage)
+    keys.forEach(key => {
+      let entry = localStorage.getItem(key)
+      allEntries.push(JSON.parse(entry))
+    })
+    await setFavoriteIds([...favoriteIds, ...allEntries])
+  }
+
+  const displayFavorites = (e) => {
+    let displayfavs = [];
+    if(e.target.innerText === "My Favorites") {
+      document.getElementById('allCareersButton').classList.remove('active')
+      e.target.classList.add('active')
+      allJobs.filter(job => {
+        if (favoriteIds.length === 0) {
+          setDisplayedData(null)
+        } else {
+          favoriteIds.forEach(fav => {
+            if(fav == job.id && !displayfavs.includes(job)) {
+              displayfavs.push(job)
+            }
+          })
+          setDisplayedData(displayfavs)
+        }
+      })
+    } else if (e.target.innerText === "All Careers") {
+      document.getElementById('favoriteButton').classList.remove('active')
+      e.target.classList.add('active')
+      setDisplayedData(allJobs)
+    }
+  }
   
   const changeDataSetToNums = (data) => {
     let numberResults =  data.map(job => {
@@ -130,7 +119,11 @@ const HomePage = () => {
         allJobs={allJobs}
         displayFavorites={displayFavorites}
       />
-      <JobContainer displayedJobs={displayedData} searching={searching} />
+      <div className="display-buttons">
+        <h6 className="all-display active" id="allCareersButton" onClick={displayFavorites}>All Careers</h6>
+        <h6 className="fav-display" id="favoriteButton" onClick={displayFavorites}>My Favorites</h6>
+      </div>
+      <JobContainer displayedJobs={displayedData} searching={searching} displayFavorites={displayFavorites}/>
     </div>
   );
 }

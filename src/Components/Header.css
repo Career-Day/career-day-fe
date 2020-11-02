@@ -16,14 +16,14 @@
 }
 
 .profile-image {
-  background-image: url(/user.png);
+  background-image: url(/images/user.png);
   /* background-image: url(/Profile.png); */
   background-size: 3em;
   width: 3em;
 }
 
 .back-button {
-  background-image: url(/BackArrow.png);
+  background-image: url(/images/BackArrow.png);
   background-size: 2.2em;
   width: 4em;
 }

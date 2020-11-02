@@ -1,14 +1,14 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import LandingPage from './LandingPage'
-import {BrowserRouter} from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
 
 describe('LandingPage', () => {
   it('should render a welcome message', () => {
     render (
-      <BrowserRouter>
+      <MemoryRouter>
         <LandingPage />
-      </BrowserRouter>
+      </MemoryRouter>
     )
 
     let welcomeMessage = screen.getByText('Career Day!', {exact: false})
@@ -21,9 +21,9 @@ describe('LandingPage', () => {
 
   it('should render an image', () => {
     render (
-      <BrowserRouter>
+      <MemoryRouter>
         <LandingPage />
-      </BrowserRouter>
+      </MemoryRouter>
     )
 
     let homeImage = screen.getByRole('img')

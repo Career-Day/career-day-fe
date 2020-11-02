@@ -1,19 +1,19 @@
 import React from 'react'
 import '@testing-library/jest-dom'
 import { MemoryRouter } from 'react-router-dom'
-import { fetchSingleJob } from '../Components/APICalls'
+import { fetchSingleJob } from '../api/APICalls'
 import { render, screen, waitFor } from '@testing-library/react'
 import JobDetails from './JobDetails'
-import fakeData from '../FakeData'
 import { act } from 'react-dom/test-utils'
 import MutationObserver from '@sheerun/mutationobserver-shim'
 window.MutationObserver = MutationObserver
-jest.mock('../Components/APICalls')
+jest.mock('../api/APICalls')
 
 describe('JobDetails', () => {
 
   it('Should render the correct content on page load', () => {
     let match = {params: {id: '1'}}
+
     render(
       <MemoryRouter>
         <JobDetails
@@ -24,8 +24,6 @@ describe('JobDetails', () => {
 
     expect(screen.getByRole('link', { name: 'Career Day' })).toBeInTheDocument()
     expect(screen.getAllByRole('button')).toHaveLength(1)
-    expect(screen.getByRole('img', { name: 'Details' })).toBeInTheDocument()
-    expect(screen.getByRole('video')).toBeInTheDocument()
   })
 
   it('Should get the job details on load', async () => {
@@ -55,7 +53,11 @@ describe('JobDetails', () => {
     })
 
     const jobName = await waitFor( () => screen.getByRole('heading', { name: 'Graphic Designer' }))
+    const image = await waitFor( () => screen.getByRole('img', { name: 'Details' }))
+    const video = await waitFor( () => screen.getByRole('video'))
     expect(fetchSingleJob).toHaveBeenCalled()
     expect(jobName).toBeInTheDocument()
+    expect(image).toBeInTheDocument()
+    expect(video).toBeInTheDocument()
   })
 })

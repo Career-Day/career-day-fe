@@ -8,7 +8,7 @@
 }
 
 .hamburger-menu {
-  background-image: url(/Hamburger.png);
+  background-image: url(/images/Hamburger.png);
   background-color: transparent;
   width: 3em;
   height: 3em;
@@ -31,18 +31,4 @@
 .search-box-button-sec {
   display: flex;
   align-content: center;
-}
-
-.active {
-  color: white;
-  background: #8FD14E;
-  border-radius: 7px;
-  width: fit-content;
-  font-size: 1em;
-  margin: 0.4em 0em;
-}
-
-.fav-display {
-  font-size:1em;
-  margin:0.4em 0em;
 }

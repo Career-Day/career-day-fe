@@ -36,6 +36,7 @@ const JobDetails = (props) => {
   }
 
   const checkFav = async(data) => {
+    console.log(data)
     let keyVal = data.id 
     let storageKeys = Object.keys(localStorage)
     if(storageKeys.includes(`Favorites${keyVal}`)) {

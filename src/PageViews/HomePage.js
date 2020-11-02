@@ -45,7 +45,6 @@ const HomePage = () => {
       document.getElementById('allCareersButton').classList.remove('active')
       e.target.classList.add('active')
       allJobs.filter(job => {
-        console.log(favoriteIds)
         if (favoriteIds.length === 0) {
           setDisplayedData(null)
         } else {

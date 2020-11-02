@@ -33,6 +33,16 @@ self.addEventListener('fetch', (event) => {
   )
 })
 
+// self.addEventListener('fetch', (event) => {
+//   event.respondWith(
+//     caches.match(event.request)
+//       .then(() => {
+//         return fetch(event.request) 
+//           .catch(() => caches.match('offline.html'))
+//     })
+//   )
+// });
+
 // self.addEventListener('fetch', function (event) {
 //   event.respondWith(
 //     // Try the cache

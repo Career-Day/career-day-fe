@@ -41,22 +41,28 @@ const HomePage = () => {
 
   const displayFavorites = (e) => {
     let displayfavs = [];
-    if(!e.target.classList.contains('active')) {
+    if(e.target.innerText === "My Favorites") {
+      document.getElementById('allCareersButton').classList.remove('active')
       e.target.classList.add('active')
       allJobs.filter(job => {
-      favoriteIds.forEach(fav => {
-        if(fav == job.id && !displayfavs.includes(job)) {
-          displayfavs.push(job)
-          }
-       })
+        console.log(favoriteIds)
+        if (favoriteIds.length === 0) {
+          setDisplayedData(null)
+        } else {
+          favoriteIds.forEach(fav => {
+            if(fav == job.id && !displayfavs.includes(job)) {
+              displayfavs.push(job)
+            }
+          })
+          setDisplayedData(displayfavs)
+        }
       })
-      setDisplayedData(displayfavs)
-    } else {
-      e.target.classList.remove('active')
+    } else if (e.target.innerText === "All Careers") {
+      document.getElementById('favoriteButton').classList.remove('active')
+      e.target.classList.add('active')
       setDisplayedData(allJobs)
     }
   }
-
   
   const changeDataSetToNums = (data) => {
     let numberResults =  data.map(job => {
@@ -114,7 +120,11 @@ const HomePage = () => {
         allJobs={allJobs}
         displayFavorites={displayFavorites}
       />
-      <JobContainer displayedJobs={displayedData} searching={searching} />
+      <div className="display-buttons">
+        <h6 className="all-display active" id="allCareersButton" onClick={displayFavorites}>All Careers</h6>
+        <h6 className="fav-display" id="favoriteButton" onClick={displayFavorites}>My Favorites</h6>
+      </div>
+      <JobContainer displayedJobs={displayedData} searching={searching} displayFavorites={displayFavorites}/>
     </div>
   );
 }

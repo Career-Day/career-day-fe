@@ -19,9 +19,8 @@ const Search = ({ searchJobsByInput, searchJobsBySalaryRange, displayFavorites }
         </div>
       {advancedOpen && 
         <section>
-          <h6 className="fav-display" onClick={displayFavorites}>My Favorites</h6>
+          {/* <h6 className="fav-display" onClick={displayFavorites}>My Favorites</h6> */}
           <Slider searchJobsBySalaryRange={searchJobsBySalaryRange} />
-
         </section>
       }
       </div>

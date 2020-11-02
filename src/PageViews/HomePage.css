@@ -1,7 +1,28 @@
 .jobs-page {
   height: 100%;
-  border: 1px solid rgb(7, 202, 0);
-  height: 100vh;
 }
 
+.display-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1.5em;
+  margin-bottom: .5em;
+}
 
+.active {
+  color: white;
+  background: #8FD14E;
+  border-radius: 7px;
+  width: fit-content;
+  font-size: 1em;
+  padding: 2px
+}
+
+.fav-display,
+.all-display {
+  font-size: 1em;
+  padding: none;
+  margin: 0
+}

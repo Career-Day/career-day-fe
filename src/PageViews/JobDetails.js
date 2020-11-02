@@ -5,7 +5,7 @@ import ReactPlayer from "react-player/youtube";
 import fetchSingleJob from '../api/APICalls'
 
 const JobDetails = (props) => {
-  const [currentDetails, setCurrentDetails] = useState([])
+  const [currentDetails, setCurrentDetails] = useState(null)
   const [error, setError] = useState('')
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -13,6 +13,7 @@ const JobDetails = (props) => {
     const getSingleJob = async () => {
       try {
       const data = await fetchSingleJob(props.match.params.id)
+      console.log(data)
       setCurrentDetails(data.job)
       checkFav(data.job)
       } catch (error) {
@@ -46,25 +47,35 @@ const JobDetails = (props) => {
     <div className='job-details-page'>
     <Header />
       <div className="job-details-section">
-        <img className="details-image" src={currentDetails.image_url} alt='Details' />
-        <div className="details-text-holder">
-          <h2 className="side-color">{currentDetails.title}</h2>
-          <p className="side-color"><b>Salary Range: </b>${currentDetails.min_salary} -  ${currentDetails.max_salary}</p>
-          <div style={{display:'flex'}}>
-          <p className="side-color"><b>Add to Favorites</b></p><img onClick={addToFavorites} style={{height:'3em'}} src={isFavorite ? '/favoritefull.png' : '/favoriteempty.png'} alt='favoriteStar' />
-          </div>
-          <p className="side-color"><b>Description:</b> {currentDetails.long_description}</p>
-        </div>
-        <div className="player-wrapper">
-          <ReactPlayer 
-            role="video"
-            url={currentDetails.video_url}
-            width='100%'
-            height='100%'
-            alt="Video detailing the job"
-            className="react-player"
-          />
-        </div>
+        {!currentDetails &&
+          <>
+            <h3>Loading Details...</h3>
+            <p>If content doesn't load, try refreshing the page</p>
+          </>
+        }
+        {currentDetails &&
+          <>
+            <img className="details-image" src={currentDetails.image_url} alt='Details' />
+            <div className="details-text-holder">
+              <h2 className="side-color">{currentDetails.title}</h2>
+              <p className="side-color"><b>Salary Range: </b>${currentDetails.min_salary} -  ${currentDetails.max_salary}</p>
+              <div style={{display:'flex'}}>
+                <p className="side-color"><b>Add to Favorites</b></p><img onClick={addToFavorites} style={{height:'3em'}} src={isFavorite ? 'images/favoritefull.png' : 'images/favoriteempty.png'} alt='favoriteStar' />
+              </div>
+              <p className="side-color"><b>Description:</b> {currentDetails.long_description}</p>
+            </div>
+            <div className="player-wrapper">
+              <ReactPlayer 
+                role="video"
+                url={currentDetails.video_url}
+                width='100%'
+                height='100%'
+                alt="Video detailing the job"
+                className="react-player"
+              />
+            </div>
+          </>
+        }
       </div>
     </div>
   )

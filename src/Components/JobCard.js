@@ -15,7 +15,7 @@ const JobCard = ({title, avg_salary, short_description, icon_url, id}) => {
         <img style={{height:'3em'}} src={icon_url} alt='profession-icon' />
         <h3 className="card-title">{title}</h3>
       </section>
-      <p data-testId="description" className="card-text-one">Avg Salary: {avg_salary}</p>
+      <p data-testId="description" className="card-text-one">Avg Salary: ${avg_salary}</p>
       <p className="card-text-two">{short_description}</p>
     </div>
   )

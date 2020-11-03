@@ -11,14 +11,14 @@ jest.mock('../api/APICalls')
 
 describe('HomePage', () => {
   beforeEach(() => {
-    fetchAllJobs.mockResolvedValue(mockFetchAll);
-    render(
+let currentlocation = {location: {pathname:'/home-page'}}
+fetchAllJobs.mockResolvedValue(mockFetchAll);
+      render(
       <MemoryRouter>
-        <HomePage />
+        <HomePage location={currentlocation} />
       </MemoryRouter>
     );
   })
-
   it('should render a search input bar', () => {
     const searchInput = screen.getByPlaceholderText('Search')
     expect(searchInput).toBeInTheDocument()
@@ -45,10 +45,9 @@ describe('HomePage', () => {
   })
 
   it('should have a hamburger button that opens access to a slider', async() => {
-    let burgerbtn = screen.getByTestId('burgerbtn')
-    expect(burgerbtn).toBeInTheDocument()
-    fireEvent.click(burgerbtn)
     let slider = await waitFor(() => screen.getByText('Salary Range:'))
+    let burgerbtn = screen.getByTestId('burgerbtn')
     expect(slider).toBeInTheDocument()
+    expect(burgerbtn).toBeInTheDocument()
   })
 })

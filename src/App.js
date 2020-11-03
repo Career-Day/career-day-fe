@@ -29,7 +29,9 @@ function App() {
       path="/details:id"
       render={(props) => {
         return (
-          <JobDetails {...props} />
+          <JobDetails 
+            jobId={props.match.params.id}
+          />
         )
       }}
       />

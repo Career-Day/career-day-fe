@@ -3,7 +3,7 @@ import './JobContainer.css'
 import JobCard from './JobCard'
 import { Link } from 'react-router-dom'
 
-const JobContainer = ({displayedJobs, searching, displayFavorites}) => {
+const JobContainer = ({displayedJobs, searching }) => {
   if (displayedJobs === null) {
     return (
       <div className="job-container">

@@ -1,6 +1,6 @@
 .individual-job {
-  flex-flow: column;
   display: flex;
+  flex-direction: column;
   width: 85vw;
   margin: 0 .5em 1em .5em;
   border-radius: .5em;

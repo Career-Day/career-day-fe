@@ -4,7 +4,7 @@ import Header from '../Components/Header'
 import ReactPlayer from "react-player/youtube";
 import fetchSingleJob from '../api/APICalls'
 
-const JobDetails = (props) => {
+const JobDetails = ({ jobId }) => {
   const [currentDetails, setCurrentDetails] = useState(null)
   const [error, setError] = useState('')
   const [isFavorite, setIsFavorite] = useState(false);
@@ -12,9 +12,9 @@ const JobDetails = (props) => {
   useEffect(() => {
     const getSingleJob = async () => {
       try {
-      const data = await fetchSingleJob(props.match.params.id)
-      setCurrentDetails(data.job)
-      checkFav(data.job)
+        const data = await fetchSingleJob(jobId)
+        setCurrentDetails(data.job)
+        checkFav(data.job.id)
       } catch (error) {
         setError(error)
       }
@@ -34,10 +34,9 @@ const JobDetails = (props) => {
     }
   }
 
-  const checkFav = async(data) => {
-    let keyVal = data.id 
+  const checkFav = async (id) => {
     let storageKeys = Object.keys(localStorage)
-    if(storageKeys.includes(`Favorites${keyVal}`)) {
+    if(storageKeys.includes(`Favorites${id}`)) {
       setIsFavorite(true)
     }
   }

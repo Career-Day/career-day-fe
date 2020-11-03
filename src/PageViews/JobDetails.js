@@ -4,9 +4,8 @@ import Header from '../Components/Header'
 import ReactPlayer from "react-player/youtube";
 import fetchSingleJob from '../api/APICalls'
 
-const JobDetails = ({ jobId }) => {
+const JobDetails = ({ jobId, location }) => {
   const [currentDetails, setCurrentDetails] = useState(null)
-  const [error, setError] = useState('')
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
@@ -16,7 +15,7 @@ const JobDetails = ({ jobId }) => {
         setCurrentDetails(data.job)
         checkFav(data.job.id)
       } catch (error) {
-        setError(error)
+        console.log(error)
       }
     }
     getSingleJob()
@@ -43,7 +42,7 @@ const JobDetails = ({ jobId }) => {
 
   return (
     <div className='job-details-page'>
-    <Header location={props.location} />
+    <Header location={location} />
       <div className="job-details-section">
         {!currentDetails &&
           <>

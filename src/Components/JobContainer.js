@@ -25,7 +25,7 @@ const JobContainer = ({displayedJobs, searching, displayFavorites}) => {
   } else {
     const jobCards = displayedJobs.map(job => {
       return (
-        <Link key={job.id} alt='single-job-card' style={{textDecoration: 'none'}} to={`/details${job.id}`}>
+        <Link key={job.id} alt='single-job-card' data-testid='singular-job' style={{textDecoration: 'none'}} to={`/details${job.id}`}>
           <JobCard 
             {...job}
           />

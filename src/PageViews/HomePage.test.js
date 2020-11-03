@@ -12,7 +12,7 @@ jest.mock('../api/APICalls')
 describe('HomePage', () => {
   beforeEach(() => {
 let currentlocation = {location: {pathname:'/home-page'}}
-fetchAllJobs.mockResolvedValue(mockFetchAll);
+fetchAllJobs.mockResolvedValue(mockFetchAll)
       render(
       <MemoryRouter>
         <HomePage location={currentlocation} />
@@ -28,20 +28,11 @@ fetchAllJobs.mockResolvedValue(mockFetchAll);
     let loadingMessage = screen.getByText('Loading Jobs...')
     expect(loadingMessage).toBeInTheDocument()
   })
-
-  it('should render all jobs', async() => {
-    let singleJob = await waitFor(() => screen.getAllByRole('heading'))
-    expect(singleJob.length).toBe(2)
-    expect(fetchAllJobs).toHaveBeenCalled()
-  })
-
   it('should allow a user to search for a job', async () => {
     let searchInput = screen.getByPlaceholderText("Search");
     expect(searchInput).toBeInTheDocument()
     await waitFor(() => fireEvent.change(searchInput, {target: {name: 'search', value: 'Graphic'}}))
     expect(searchInput.value).toBe('Graphic')
-
-    // Cant get results to populate
   })
 
   it('should have a hamburger button that opens access to a slider', async() => {

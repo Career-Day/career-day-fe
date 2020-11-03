@@ -44,7 +44,7 @@ const JobDetails = (props) => {
 
   return (
     <div className='job-details-page'>
-    <Header />
+    <Header location={props.location} />
       <div className="job-details-section">
         {!currentDetails &&
           <>

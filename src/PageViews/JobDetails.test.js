@@ -13,10 +13,12 @@ describe('JobDetails', () => {
 
   it('Should render the correct content on page load', () => {
     let match = {params: {id: '1'}}
+    let currentlocation = {location: {pathname:'/home-page'}}
 
     render(
       <MemoryRouter>
         <JobDetails
+          location={currentlocation}
           match={match}
         />
       </MemoryRouter>
@@ -28,7 +30,7 @@ describe('JobDetails', () => {
 
   it('Should get the job details on load', async () => {
     let match = {params: {id: '2'}}
-
+    let currentlocation = {location: {pathname:'/home-page'}}
     fetchSingleJob.mockResolvedValue(
       {
       job: {
@@ -47,6 +49,7 @@ describe('JobDetails', () => {
         <MemoryRouter>
           <JobDetails
             match={match}
+            location={currentlocation}
           />
         </MemoryRouter>
       )

@@ -5,9 +5,10 @@ import {BrowserRouter} from 'react-router-dom'
 
 describe('Header', () => {
   it('should render the title as a clickable link', () => {
+    let currentlocation = {location: {pathname:'/home-page'}}
     render (
       <BrowserRouter>
-        <Header />
+        <Header location={currentlocation} />
       </BrowserRouter>
     )
 
@@ -15,9 +16,10 @@ describe('Header', () => {
   })
 
   it('should render a back button as a clickable link', () => {
+    let currentlocation = {location: {pathname:'/home-page'}}
     render (
       <BrowserRouter>
-        <Header />
+        <Header location={currentlocation} />
       </BrowserRouter>
     )
 
@@ -26,9 +28,10 @@ describe('Header', () => {
   })
 
   it('should have a default profile image icon', () => {
+    let currentlocation = {location: {pathname:'/home-page'}}
     render (
       <BrowserRouter>
-        <Header />
+        <Header location={currentlocation} />
       </BrowserRouter>
     )
     

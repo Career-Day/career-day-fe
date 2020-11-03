@@ -5,7 +5,7 @@ import Search from '../Components/Search'
 import JobContainer from '../Components/JobContainer'
 import { fetchAllJobs } from '../api/APICalls'
 
-const HomePage = () => {
+const HomePage = (props) => {
   const [allJobs, setAllJobs] = useState([])
   const [displayedData, setDisplayedData] = useState([])
   const [searching, setSearching] = useState(false)
@@ -112,7 +112,7 @@ const HomePage = () => {
 
   return (
     <div className="jobs-page">
-      <Header />
+      <Header location={props.location} />
       <Search
         searchJobsBySalaryRange={searchJobsBySalaryRange}
         searchJobsByInput={searchJobsByInput}

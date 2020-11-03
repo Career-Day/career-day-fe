@@ -21,7 +21,9 @@ function App() {
         exact path = "/home-page"
         render={(props) => {
           return (
-            <HomePage {...props} />
+            <HomePage 
+              location={props.location}
+            />
           )
         }}
       />
@@ -31,6 +33,7 @@ function App() {
         return (
           <JobDetails 
             jobId={props.match.params.id}
+            location={props.location}
           />
         )
       }}

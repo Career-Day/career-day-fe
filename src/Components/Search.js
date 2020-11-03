@@ -17,9 +17,8 @@ const Search = ({ searchJobsByInput, searchJobsBySalaryRange, displayFavorites }
           <input onChange={(e) => searchJobsByInput(e.target.value)} type="text" placeholder="Search" className="search-box"/>
           <button data-testid='burgerbtn' alt='burgerbtn' onClick={hamToggle} className="hamburger-menu"></button>
         </div>
-      {advancedOpen && 
+      {!advancedOpen && 
         <section>
-          {/* <h6 className="fav-display" onClick={displayFavorites}>My Favorites</h6> */}
           <Slider searchJobsBySalaryRange={searchJobsBySalaryRange} />
         </section>
       }

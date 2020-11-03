@@ -19,9 +19,9 @@ function App() {
       />
       <Route 
         exact path = "/home-page"
-        render={() => {
+        render={(props) => {
           return (
-            <HomePage />
+            <HomePage {...props} />
           )
         }}
       />

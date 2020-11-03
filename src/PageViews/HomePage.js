@@ -5,13 +5,12 @@ import Search from '../Components/Search'
 import JobContainer from '../Components/JobContainer'
 import { fetchAllJobs } from '../api/APICalls'
 
-const HomePage = (props) => {
+const HomePage = ({ location }) => {
   const [allJobs, setAllJobs] = useState([])
   const [displayedData, setDisplayedData] = useState([])
   const [searching, setSearching] = useState(false)
   const [values, setValues] = useState([])
   const [searchInput, setSearchInput] = useState('')
-  const [error, setError] = useState('')
   const [favoriteIds, setFavoriteIds] = useState([])
 
   useEffect(() => {
@@ -19,11 +18,11 @@ const HomePage = (props) => {
     async function getJobs() {
       try{
         let data = await fetchAllJobs()
-        const newData = changeDataSetToNums(data.jobs)
+        const newData = changeDataSetToNumbers(data.jobs)
         setAllJobs(newData);
         setDisplayedData(newData);
       } catch (error) {
-        setError(error)
+        console.log(error)
       }
     }
     getJobs()
@@ -40,7 +39,7 @@ const HomePage = (props) => {
   }
 
   const displayFavorites = (e) => {
-    let displayfavs = [];
+    let displayFavorites = [];
     if(e.target.innerText === "My Favorites") {
       document.getElementById('allCareersButton').classList.remove('active')
       e.target.classList.add('active')
@@ -49,11 +48,11 @@ const HomePage = (props) => {
           setDisplayedData(null)
         } else {
           favoriteIds.forEach(fav => {
-            if(fav == job.id && !displayfavs.includes(job)) {
-              displayfavs.push(job)
+            if(fav === job.id && !displayFavorites.includes(job)) {
+              displayFavorites.push(job)
             }
           })
-          setDisplayedData(displayfavs)
+          setDisplayedData(displayFavorites)
         }
       })
     } else if (e.target.innerText === "All Careers") {
@@ -63,7 +62,7 @@ const HomePage = (props) => {
     }
   }
   
-  const changeDataSetToNums = (data) => {
+  const changeDataSetToNumbers = (data) => {
     let numberResults =  data.map(job => {
       let noCommaNum = job.avg_salary.split(',').join('')
       let num = parseInt(noCommaNum)
@@ -112,7 +111,7 @@ const HomePage = (props) => {
 
   return (
     <div className="jobs-page">
-      <Header location={props.location} />
+      <Header location={location} />
       <Search
         searchJobsBySalaryRange={searchJobsBySalaryRange}
         searchJobsByInput={searchJobsByInput}

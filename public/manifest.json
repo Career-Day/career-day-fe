@@ -6,14 +6,49 @@
             "src": "/images/logo512.png",
             "type": "image/png",
             "sizes": "512x512",
-            "purpose": "maskable"
+            "purpose": "maskable any"
         },
         {
             "src": "/images/logo192.png",
             "type": "image/png",
             "sizes": "192x192",
-            "purpose": "maskable"
-        }
+            "purpose": "maskable any"
+        },
+        {
+            "src": "/images/logo72.png",
+            "type": "image/png",
+            "sizes": "72x72",
+            "purpose": "maskable any"
+          },
+          {
+            "src": "/images/logo96.png",
+            "type": "image/png",
+            "sizes": "96x96",
+            "purpose": "maskable any"
+          },
+          {
+            "src": "/images/logo128.png",
+            "type": "image/png",
+            "sizes": "128x128",
+            "purpose": "maskable any"
+          },
+          {
+            "src": "/images/logo144.png",
+            "type": "image/png",
+            "sizes": "144x144",
+            "purpose": "maskable any"
+          },
+          {
+            "src": "/images/logo152.png",
+            "type": "image/png",
+            "sizes": "152x152",
+            "purpose": "maskable any"
+          },
+          {
+            "src": "/images/logo384.png",
+            "type": "image/png",
+            "sizes": "384x384"
+          }
     ],
     "start_url": ".",
     "display": "fullscreen",

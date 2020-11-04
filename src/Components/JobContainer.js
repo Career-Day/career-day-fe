@@ -14,6 +14,7 @@ const JobContainer = ({displayedJobs, searching }) => {
     return (
       <div className="job-container">
         <p className="no-results-text">Loading Jobs...</p>
+        <p>If jobs don't load, check your internet connection and reload page</p>
       </div>
     )
   } else if (displayedJobs.length === 0 && searching === true) {

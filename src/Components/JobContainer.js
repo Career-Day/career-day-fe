@@ -4,8 +4,6 @@ import JobCard from './JobCard'
 import { Link } from 'react-router-dom'
 
 const JobContainer = ({displayedJobs, searching }) => {
-  console.log(displayedJobs, 'IAMDISPLAYEDJOBS')
-  console.log(searching, 'IAMSEARCHING')
   if (displayedJobs === null) {
     return (
       <div className="job-container">

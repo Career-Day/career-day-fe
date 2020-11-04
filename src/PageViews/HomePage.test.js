@@ -38,8 +38,10 @@ fetchAllJobs.mockResolvedValue(mockFetchAll)
     expect(slider).toBeInTheDocument()
     expect(burgerbtn).toBeInTheDocument()
   })
-  it('should render all of the given jobs', async() => {
+  it('should render all of the given jobs on page load', async() => {
     let eachJob = await waitFor(() => screen.getAllByTestId('singular-job'))
     expect(eachJob.length).toBe(15)
+    let jobDescriptions = screen.getAllByTestId('short-description')
+    expect(jobDescriptions.length).toBe(15)
   })
 })

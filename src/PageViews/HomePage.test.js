@@ -12,7 +12,7 @@ jest.mock('../api/APICalls')
 describe('HomePage', () => {
   beforeEach(() => {
 let currentlocation = {location: {pathname:'/home-page'}}
-fetchAllJobs.mockResolvedValue(mockFetchAll);
+fetchAllJobs.mockResolvedValue(mockFetchAll)
       render(
       <MemoryRouter>
         <HomePage location={currentlocation} />
@@ -23,31 +23,25 @@ fetchAllJobs.mockResolvedValue(mockFetchAll);
     const searchInput = screen.getByPlaceholderText('Search')
     expect(searchInput).toBeInTheDocument()
   })
-
-  it('should render a loading message', () => {
-    let loadingMessage = screen.getByText('Loading Jobs...')
-    expect(loadingMessage).toBeInTheDocument()
-  })
-
-  it('should render all jobs', async() => {
-    let singleJob = await waitFor(() => screen.getAllByRole('heading'))
-    expect(singleJob.length).toBe(2)
-    expect(fetchAllJobs).toHaveBeenCalled()
-  })
-
   it('should allow a user to search for a job', async () => {
     let searchInput = screen.getByPlaceholderText("Search");
     expect(searchInput).toBeInTheDocument()
+    let eachJob = await waitFor(() => screen.getAllByTestId('singular-job'))
+    expect(eachJob.length).toBe(15)
     await waitFor(() => fireEvent.change(searchInput, {target: {name: 'search', value: 'Graphic'}}))
     expect(searchInput.value).toBe('Graphic')
-
-    // Cant get results to populate
   })
 
-  it('should have a hamburger button that opens access to a slider', async() => {
+  it('should have a hamburger button that closes access to a slider', async() => {
     let slider = await waitFor(() => screen.getByText('Salary Range:'))
     let burgerbtn = screen.getByTestId('burgerbtn')
     expect(slider).toBeInTheDocument()
     expect(burgerbtn).toBeInTheDocument()
+  })
+  it('should render all of the given jobs on page load', async() => {
+    let eachJob = await waitFor(() => screen.getAllByTestId('singular-job'))
+    expect(eachJob.length).toBe(15)
+    let jobDescriptions = screen.getAllByTestId('short-description')
+    expect(jobDescriptions.length).toBe(15)
   })
 })

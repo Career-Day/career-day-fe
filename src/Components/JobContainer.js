@@ -13,7 +13,7 @@ const JobContainer = ({displayedJobs, searching }) => {
   } else if (displayedJobs.length === 0 && searching === false) {
     return (
       <div className="job-container">
-        <p className="no-results-text">Loading Jobs...</p>
+        <p data-testid='loading-message' className="no-results-text">Loading Jobs...</p>
       </div>
     )
   } else if (displayedJobs.length === 0 && searching === true) {
@@ -25,7 +25,7 @@ const JobContainer = ({displayedJobs, searching }) => {
   } else {
     const jobCards = displayedJobs.map(job => {
       return (
-        <Link key={job.id} alt='single-job-card' style={{textDecoration: 'none'}} to={`/details${job.id}`}>
+        <Link key={job.id} alt='single-job-card' data-testid='singular-job' style={{textDecoration: 'none'}} to={`/details${job.id}`}>
           <JobCard 
             {...job}
           />

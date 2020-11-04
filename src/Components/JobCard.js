@@ -16,7 +16,7 @@ const JobCard = ({title, avg_salary, short_description, icon_url, id}) => {
         <h3 className="card-title">{title}</h3>
       </section>
       <p data-testid="description" className="card-text-one">Avg Salary: ${avg_salary}</p>
-      <p className="card-text-two">{short_description}</p>
+      <p data-testid='short-description' className="card-text-two">{short_description}</p>
     </div>
   )
 }

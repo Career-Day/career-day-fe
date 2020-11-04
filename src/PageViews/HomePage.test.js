@@ -23,11 +23,6 @@ fetchAllJobs.mockResolvedValue(mockFetchAll)
     const searchInput = screen.getByPlaceholderText('Search')
     expect(searchInput).toBeInTheDocument()
   })
-
-  it('should render a loading message', () => {
-    let loadingMessage = screen.getByText('Loading Jobs...')
-    expect(loadingMessage).toBeInTheDocument()
-  })
   it('should allow a user to search for a job', async () => {
     let searchInput = screen.getByPlaceholderText("Search");
     expect(searchInput).toBeInTheDocument()

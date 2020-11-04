@@ -24,5 +24,6 @@
 .all-display {
   font-size: 1em;
   padding: none;
-  margin: 0
+  margin: 0;
+  cursor: pointer;
 }

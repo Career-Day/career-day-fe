@@ -18,7 +18,8 @@ const HomePage = ({ location }) => {
     async function getJobs() {
       try{
         let data = await fetchAllJobs()
-        const newData = changeDataSetToNumbers(data.jobs)
+        const newData = await changeDataSetToNumbers(data.jobs)
+       
         setAllJobs(newData);
         setDisplayedData(newData);
       } catch (error) {
@@ -64,10 +65,14 @@ const HomePage = ({ location }) => {
   
   const changeDataSetToNumbers = (data) => {
     let numberResults =  data.map(job => {
-      let noCommaNum = job.avg_salary.split(',').join('')
-      let num = parseInt(noCommaNum)
-      job.avg_salary = num
-      return job
+      if (job.avg_salary && typeof job.avg_salary === "string") {
+        let noCommaNum = job.avg_salary.split(',').join('')
+        let num = parseInt(noCommaNum)
+        job.avg_salary = num
+        return job
+      } else {
+        return job
+      }
     })
     return numberResults
   }

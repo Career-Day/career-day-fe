@@ -35,7 +35,7 @@ We plan to add features that will allow users to...
 * make an account, and login
 * search by location/region 
 * connect with professionals
-* add more career to the exsisting dataset 
+* add more careers to the exsisting dataset 
 * Enable push notifications 
 
 
@@ -90,7 +90,8 @@ See the [open issues](https://github.com/Career-Day/career-day-fe/issues) for a 
 
 Carly Clift
   - carlymclift@gmail.com
-  - [Carly's Linkedin](https://www.linkedin.com/in/carlyclift/)
+  - [Carly's Linkedin](https://www.linkedin.com/in/carlyclift/)   
+  
 Corbin March
   - marchcorbin@gmail.com
   - [Corbin's Linkedin](https://www.linkedin.com/in/marchcorbin/)
